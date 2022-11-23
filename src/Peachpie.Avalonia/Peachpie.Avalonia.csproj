@@ -1,9 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <OutputType>Library</OutputType>
         <TargetFramework>net6.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <IsPackable>true</IsPackable>
+        <Nullable>warnings</Nullable>
+        <LangVersion>latest</LangVersion>
+        <Title>AvaloniaUI for PeachPie</Title>
+        <Authors>FibonacciFox</Authors>
     </PropertyGroup>
 
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.0.0-preview4" />
+        <PackageReference Include="Peachpie.Runtime" Version="1.1.3" />
+    </ItemGroup>
 </Project>
