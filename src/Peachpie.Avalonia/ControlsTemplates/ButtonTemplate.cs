@@ -10,10 +10,5 @@ namespace Peachpie.Avalonia.ControlsTemplates;
 /// </summary>
 public class ButtonTemplate : Button , IStyleable
 {
-    [PhpHidden] private Type StyleKey = typeof(Button);
-
-    public ButtonTemplate()
-    {
-        Content = "ButtonTemplate";
-    }
+    [PhpHidden] public Type StyleKey => typeof(Button);
 }
