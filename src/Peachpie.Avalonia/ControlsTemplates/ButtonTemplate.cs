@@ -19,6 +19,8 @@ public class ButtonTemplate : Button , IStyleable
 {
     [PhpHidden] public Type StyleKey => typeof(Button);
     
+    #region Property
+    
     /// <summary>
     /// Sets a value indicating how the Button should react to clicks.
     /// </summary>
@@ -74,6 +76,6 @@ public class ButtonTemplate : Button , IStyleable
         IValueConverter converter = null, object bindingSource = null,
         [CallerArgumentExpression("value")] string ps = null) => this._setEx(FlyoutProperty, ps,
         () => base.Flyout = value, bindingMode, converter, bindingSource);
-
-
+    
+    #endregion
 }

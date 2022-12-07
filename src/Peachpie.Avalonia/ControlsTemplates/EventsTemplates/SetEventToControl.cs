@@ -1,7 +1,7 @@
 ﻿using System;
 using Avalonia;
 
-namespace Peachpie.Avalonia.ControlsTemplates.EventExtensions;
+namespace Peachpie.Avalonia.ControlsTemplates.EventsTemplates;
 
 public static class SetEventToControl
 {
