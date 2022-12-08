@@ -9,7 +9,6 @@
   "authors": [ { "name": "Maxim Rakov" } ],
   "autoload": {
     "psr-4": {
-      "": "src/",
       "": ""
     }
   }
