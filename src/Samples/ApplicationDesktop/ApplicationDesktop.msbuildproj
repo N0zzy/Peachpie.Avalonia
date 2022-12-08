@@ -1,0 +1,13 @@
+﻿<Project Sdk="Peachpie.NET.Sdk/1.1.3">
+  <PropertyGroup>
+    <OutputType>exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <StartupObject>App.php</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="**/*.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.msbuildproj" />
+  </ItemGroup>
+</Project>
