@@ -1,6 +1,6 @@
 ﻿<?php
 
-namespace Controls;
+namespace Application\Controls;
 
 use Peachpie\Avalonia\ControlsTemplates\StackPanelTemplate;
 

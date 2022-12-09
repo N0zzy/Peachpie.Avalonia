@@ -10,6 +10,17 @@
     <ProjectReference Include="..\..\Peachpie.Avalonia\Peachpie.Avalonia.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Forms" />
+    <Folder Include="src\Application" />
   </ItemGroup>
+
+ <!-- 
+ <Target Name="CopyLibrary" BeforeTargets="BeforeBuild">
+    <Message Text="###BeforeBuild###" Importance="High" />
+    <ItemGroup>
+      <ANTLR Include="src\**\*.php" />
+    </ItemGroup>
+    <Copy SourceFiles="@(ANTLR)" DestinationFolder="..\ApplicationDesktop\src\%(RecursiveDir)" SkipUnchangedFiles="true" />
+  </Target>
+  -->
+  
 </Project>

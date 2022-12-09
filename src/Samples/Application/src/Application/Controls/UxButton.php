@@ -1,6 +1,6 @@
 ﻿<?php
 
-namespace Controls;
+namespace Application\Controls;
 
 use Peachpie\Avalonia\ControlsTemplates\ButtonTemplate;
 use Peachpie\Avalonia\ControlsTemplates\EventsTemplates\ButtonEventsTemplates;

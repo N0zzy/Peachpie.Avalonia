@@ -1,10 +1,12 @@
 <?php
 
-namespace Forms;
+namespace Application\Forms;
 
-use Controls\{ UxWindow,UxButton, UxStackPanel };
+use Application\Controls\{ UxWindow,UxButton, UxStackPanel };
+use Pchp\Core\PhpValue;
 
 class MainWindow extends UxWindow {
+
      public function __construct() {
 
         $this->Title = "ApplicationDesktop";
@@ -17,12 +19,13 @@ class MainWindow extends UxWindow {
 
         $OpenToDoListForm = new UxButton();
         $OpenToDoListForm->Content = "ToDoListForm";
-        
-        $value = 100.01;
-        $OpenToDoListForm->on_Click(function($RoutedEventArgs) use ($OpenToDoListForm, $value){
-            //$OpenToDoListForm->Content = $value; 
-            echo $value;
-            echo $RoutedEventArgs->Source;
+
+        $data = "100.1";
+        $OpenToDoListForm->on_Click(function($RoutedEventArgs) use ($OpenToDoListForm, $data){
+            var_dump($data);
+            var_dump("#########################################");
+            $OpenToDoListForm->Content($data);
+            var_dump($OpenToDoListForm->Content);
         });
       
         /*
@@ -36,6 +39,10 @@ class MainWindow extends UxWindow {
         */
         $UxStackPanel->Children->Add($OpenToDoListForm);
         
+     }
+
+     private function asObject($value): object {
+         return PhpValue::FromClass($value);
      }
 
 }

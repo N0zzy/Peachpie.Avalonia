@@ -1,7 +1,9 @@
 ﻿<?php
 
+namespace Application\Desktop;
+
 use Peachpie\Avalonia\Platform\UxApplication;
-use Forms\MainWindow;
+use Application\Forms\MainWindow;
 
 abstract class FluentThemeMode
 {
