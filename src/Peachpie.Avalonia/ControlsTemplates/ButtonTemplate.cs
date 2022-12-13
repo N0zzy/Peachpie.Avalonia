@@ -12,6 +12,8 @@ using Peachpie.Avalonia.ControlsTemplates.PropertyExtensions;
 
 namespace Peachpie.Avalonia.ControlsTemplates;
 
+
+
 /// <summary>
 /// A standard button control.
 /// </summary>
@@ -22,7 +24,6 @@ public class ButtonTemplate : Button , IStyleable
     public new ButtonTemplate Content(PhpValue value = default, BindingMode? bindingMode = null, IValueConverter converter = null, object bindingSource = null, [CallerArgumentExpression("value")] string ps = null)
         => this._setEx(ContentProperty, ps, () => base.Content = PhpValue.FromClass(value), bindingMode, converter,
             bindingSource);
-
     
     #region Property
     

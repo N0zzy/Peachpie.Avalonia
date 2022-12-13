@@ -2,7 +2,7 @@
 
 namespace Application\Forms;
 
-use Application\Controls\{ UxWindow,UxButton, UxStackPanel };
+use SharPie\Controls\{ UxWindow,UxButton, UxStackPanel };
 use Pchp\Core\PhpValue;
 
 class MainWindow extends UxWindow {

@@ -1,6 +1,6 @@
 ﻿<?php
 
-namespace Application\Controls;
+namespace SharPie\Controls;
 
 use Peachpie\Avalonia\ControlsTemplates\WindowTemplate;
 

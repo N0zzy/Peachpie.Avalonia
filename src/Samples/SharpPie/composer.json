@@ -1,6 +1,6 @@
 ﻿{
-  "name": "fibonaccifox/application",
-  "description": "Application",
+  "name": "fibonaccifox/sharpie",
+  "description": "sharpie ui framework",
   "type": "library",
   "require": {
     "php": ">=8.0"
@@ -9,7 +9,7 @@
   "authors": [ { "name": "Maxim Rakov" } ],
   "autoload": {
     "psr-4": {
-      "Application\\": "src/Application",
+      "SharPie\\": "src/SharPie",
       "": ""
     }
   }

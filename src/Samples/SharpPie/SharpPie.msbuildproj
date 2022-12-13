@@ -7,10 +7,10 @@
     <Compile Include="**/*.php" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\Application" />
+    <ProjectReference Include="..\..\Peachpie.Avalonia\Peachpie.Avalonia.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpPie\SharpPie.msbuildproj" />
+    <Folder Include="src\" />
   </ItemGroup>
 
  <!-- 

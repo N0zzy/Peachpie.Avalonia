@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Samples\Appl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationDesktop", "Samples\ApplicationDesktop\ApplicationDesktop.msbuildproj", "{C8B11070-8AAC-41E4-9156-ACFE40115BA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpPie", "Samples\SharpPie\SharpPie.msbuildproj", "{FCFD6119-2754-48F2-B322-C4A780FE090A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{C8B11070-8AAC-41E4-9156-ACFE40115BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8B11070-8AAC-41E4-9156-ACFE40115BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8B11070-8AAC-41E4-9156-ACFE40115BA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCFD6119-2754-48F2-B322-C4A780FE090A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCFD6119-2754-48F2-B322-C4A780FE090A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCFD6119-2754-48F2-B322-C4A780FE090A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCFD6119-2754-48F2-B322-C4A780FE090A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
