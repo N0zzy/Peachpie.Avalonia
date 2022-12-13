@@ -23,14 +23,17 @@ public static class ControlPropertyExtensions
         return control;
     }
 
-    public static TControl _setEx<TControl>(this TControl control, AvaloniaProperty destProperty, string sourcePropertyPathString, Action setAction,
-                        BindingMode? bindingMode, IValueConverter converter, object bindingSource)
+    public static TControl _setEx<TControl>(this TControl control, AvaloniaProperty destProperty,
+        string sourcePropertyPathString, Action setAction,
+        BindingMode? bindingMode, IValueConverter converter, object bindingSource)
         where TControl : AvaloniaObject
     {
-        if (sourcePropertyPathString == null
+        if (sourcePropertyPathString != null
             || bindingMode.HasValue
-            || bindingSource != default
-            || sourcePropertyPathString.StartsWith("@"))
+            || bindingSource != default)
+            /* || sourcePropertyPathString.StartsWith("@") )
+             */
+
         {
             var binding = new Binding
             {

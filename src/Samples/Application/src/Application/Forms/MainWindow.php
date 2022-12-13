@@ -7,7 +7,8 @@ use Pchp\Core\PhpValue;
 
 class MainWindow extends UxWindow {
 
-     public function __construct() {
+
+    public function __construct() {
 
         $this->Title = "ApplicationDesktop";
 
@@ -20,12 +21,9 @@ class MainWindow extends UxWindow {
         $OpenToDoListForm = new UxButton();
         $OpenToDoListForm->Content = "ToDoListForm";
 
-        $data = "100.1";
-        $OpenToDoListForm->on_Click(function($RoutedEventArgs) use ($OpenToDoListForm, $data){
-            var_dump($data);
-            var_dump("#########################################");
+        $data = "opened";
+        $OpenToDoListForm->on_Click( callback: function( $RoutedEventArgs) use ($OpenToDoListForm, $data){
             $OpenToDoListForm->Content($data);
-            var_dump($OpenToDoListForm->Content);
         });
       
         /*
@@ -40,8 +38,8 @@ class MainWindow extends UxWindow {
         $UxStackPanel->Children->Add($OpenToDoListForm);
         
      }
-
-     private function asObject($value): object {
+     //Некоторые свойства вызывают ошибку типов, данный метод позволяет её обойти
+     private function getContent($value) {
          return PhpValue::FromClass($value);
      }
 

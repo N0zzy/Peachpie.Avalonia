@@ -21,8 +21,8 @@ public class ButtonTemplate : Button , IStyleable
 {
     [PhpHidden] public Type StyleKey => typeof(Button);
     
-    public new ButtonTemplate Content(PhpValue value = default, BindingMode? bindingMode = null, IValueConverter converter = null, object bindingSource = null, [CallerArgumentExpression("value")] string ps = null)
-        => this._setEx(ContentProperty, ps, () => base.Content = PhpValue.FromClass(value), bindingMode, converter,
+    public new ButtonTemplate Content(object value = default, BindingMode? bindingMode = null, IValueConverter converter = null, object bindingSource = null, [CallerArgumentExpression("value")] string ps = null)
+        => this._setEx(ContentProperty, ps, () => base.Content = value, bindingMode, converter,
             bindingSource);
     
     #region Property
