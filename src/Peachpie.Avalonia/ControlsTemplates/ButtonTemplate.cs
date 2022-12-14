@@ -8,7 +8,7 @@ using Avalonia.Data.Converters;
 using Avalonia.Input;
 using Avalonia.Styling;
 using Pchp.Core;
-using Peachpie.Avalonia.ControlsTemplates.PropertyExtensions;
+using Peachpie.Avalonia.ControlsTemplates.PropertyTemplates;
 
 namespace Peachpie.Avalonia.ControlsTemplates;
 

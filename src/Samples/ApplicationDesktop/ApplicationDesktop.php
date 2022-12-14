@@ -11,6 +11,6 @@ abstract class FluentThemeMode
     public const Dark = "Dark";
 }
 
-$UxApplication = new UxApplication( callback: function() {
+$UxApplication = new UxApplication(callback: function () {
     return new MainWindow();
-}, FluentThemeMode: FluentThemeMode::Light);
+}, FluentThemeMode : FluentThemeMode::Light);

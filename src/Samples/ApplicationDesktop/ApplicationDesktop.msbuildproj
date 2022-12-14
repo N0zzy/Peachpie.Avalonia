@@ -2,7 +2,7 @@
   <PropertyGroup>
     <OutputType>exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
-    <StartupObject>App.php</StartupObject>
+    <StartupObject>ApplicationDesktop.php</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="**/*.php" />

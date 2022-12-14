@@ -4,7 +4,7 @@ using Avalonia;
 using Avalonia.Data;
 using Avalonia.Data.Converters;
 
-namespace Peachpie.Avalonia.ControlsTemplates.PropertyExtensions;
+namespace Peachpie.Avalonia.ControlsTemplates.PropertyTemplates;
 
 public class ApplicationPropertyExtension
 {

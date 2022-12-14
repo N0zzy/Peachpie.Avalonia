@@ -6,7 +6,7 @@ using Pchp.Core;
 
 namespace Peachpie.Avalonia.ControlsTemplates.EventsTemplates;
 
-public static class InputElementEventsTemplates
+public static class InputElementEventsTemplate
 {
     public static PhpValue OnGotFocus(InputElement control, Action<GotFocusEventArgs> action) =>
         PhpValue.FromClass(control._setEvent((EventHandler<GotFocusEventArgs>)((_, args) => action(args)),

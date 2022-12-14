@@ -13,9 +13,9 @@ using Avalonia.Data.Converters;
 using Avalonia.Media;
 using Avalonia.Styling;
 
-namespace Peachpie.Avalonia.ControlsTemplates.PropertyExtensions;
+namespace Peachpie.Avalonia.ControlsTemplates.PropertyTemplates;
 
-public static class ControlPropertyExtensions
+public static class ControlPropertyTemplate
 {
     public static TControl _set<TControl>(this TControl control, Action setAction)
     {

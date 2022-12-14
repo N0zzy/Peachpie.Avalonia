@@ -19,22 +19,24 @@ class MainWindow extends UxWindow {
         $this->Content = $UxStackPanel;
 
         $OpenToDoListForm = new UxButton();
-        $OpenToDoListForm->Content = "ToDoListForm";
+        $OpenToDoListForm->Content("ToDoListForm")->Width = 300;
 
-        $data = "opened";
+        $data = 1000.1;
         $OpenToDoListForm->on_Click( callback: function( $RoutedEventArgs) use ($OpenToDoListForm, $data){
             $OpenToDoListForm->Content($data);
         });
-      
-        /*
-         $OpenToDoListForm->On_PointerEntered(function (){
+
+
+         $OpenToDoListForm->on_PointerEntered(callback : function (){
                 $this->Title = "Показать форму ToDoListForm";
          });
 
-         $OpenToDoListForm->On_PointerExited(function (){
+
+
+         $OpenToDoListForm->On_PointerExited(callback : function (){
                 $this->Title = "Панель примеров";
          });
-        */
+
         $UxStackPanel->Children->Add($OpenToDoListForm);
         
      }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Peachpie.Avalonia.ControlsTemplates.PropertyExtensions;
+namespace Peachpie.Avalonia.ControlsTemplates.PropertyTemplates;
 
 public static class PropertyPathHelper
 {
