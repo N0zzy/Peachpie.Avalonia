@@ -19,26 +19,31 @@ class MainWindow extends UxWindow {
         $this->Content = $UxStackPanel;
 
         $OpenToDoListForm = new UxButton();
-        $OpenToDoListForm->Content("ToDoListForm")->Width = 300;
+        $OpenToDoListForm->Content("ToDoListForm");
 
         $data = 1000.1;
-        $OpenToDoListForm->on_Click( callback: function( $RoutedEventArgs) use ($OpenToDoListForm, $data){
+        $OpenToDoListForm->on_Click( callback: function($RoutedEventArgs) use ($OpenToDoListForm, $data){
             $OpenToDoListForm->Content($data);
         });
 
 
-         $OpenToDoListForm->on_PointerEntered(callback : function (){
-                $this->Title = "Показать форму ToDoListForm";
-         });
+        $OpenToDoListForm->on_PointerEntered(callback : function () use ($OpenToDoListForm){
+            $this->Title = "Показать форму ToDoListForm";
+            $OpenToDoListForm->Width = 300;
+        });
+
+        $this->on_SizeChanged(function($SizeChangedEventArgs){
+            echo "Height: ".$SizeChangedEventArgs->NewSize->Height."\n";
+        });
 
 
-
-         $OpenToDoListForm->On_PointerExited(callback : function (){
+        $OpenToDoListForm->On_PointerExited(callback : function () use ($OpenToDoListForm){
                 $this->Title = "Панель примеров";
+                $OpenToDoListForm->Width = 90;
          });
 
         $UxStackPanel->Children->Add($OpenToDoListForm);
-        
+
      }
      //Некоторые свойства вызывают ошибку типов, данный метод позволяет её обойти
      private function getContent($value) {

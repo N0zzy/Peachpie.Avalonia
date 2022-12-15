@@ -5,7 +5,7 @@ using Pchp.Core;
 
 namespace Peachpie.Avalonia.ControlsTemplates.EventsTemplates;
 
-public static class ControlEventsTemplates
+public static class ControlEventsTemplate
 {
     public static PhpValue OnContextRequested(Control control, Action<ContextRequestedEventArgs> action) =>
         PhpValue.FromClass(control._setEvent((EventHandler<ContextRequestedEventArgs>)((_, args) => action(args)),
