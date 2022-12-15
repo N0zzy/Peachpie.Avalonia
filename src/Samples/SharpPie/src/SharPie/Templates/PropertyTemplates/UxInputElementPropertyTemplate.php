@@ -1,6 +1,6 @@
 <?php
 
-namespace SharPie\PropertyTemplates;
+namespace SharPie\Templates\PropertyTemplates;
 
 use Peachpie\Avalonia\ControlsTemplates\PropertyTemplates\InputElementPropertyTemplate;
 use SharPie\Input\UxInputElement;

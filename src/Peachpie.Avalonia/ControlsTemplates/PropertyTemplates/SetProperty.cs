@@ -15,7 +15,7 @@ using Avalonia.Styling;
 
 namespace Peachpie.Avalonia.ControlsTemplates.PropertyTemplates;
 
-public static class ControlPropertyTemplate
+public static class SetProperty
 {
     public static TControl _set<TControl>(this TControl control, Action setAction)
     {

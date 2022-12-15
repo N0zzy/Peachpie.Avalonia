@@ -40,7 +40,9 @@ class MainWindow extends UxWindow {
         $OpenToDoListForm->On_PointerExited(callback : function () use ($OpenToDoListForm){
                 $this->Title = "Панель примеров";
                 $OpenToDoListForm->Width = 90;
-         });
+        });
+
+
 
         $UxStackPanel->Children->Add($OpenToDoListForm);
 

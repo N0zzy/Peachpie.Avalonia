@@ -6,7 +6,7 @@ using Avalonia.Data.Converters;
 
 namespace Peachpie.Avalonia.ControlsTemplates.PropertyTemplates;
 
-public class ApplicationPropertyExtension
+public class ApplicationPropertyTemplate
 {
     
     public Application DataContext(Application control, Object value = default,

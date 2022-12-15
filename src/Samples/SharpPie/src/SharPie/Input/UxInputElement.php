@@ -2,11 +2,9 @@
 
 namespace SharPie\Input;
 
-use SharPie\EventsTemplates\UxInputElementEventsTemplate;
-use SharPie\PropertyTemplates\UxInputElementPropertyTemplate;
+use SharPie\Templates\UxInputElementTemplate;
 
 class UxInputElement
 {
-    use UxInputElementPropertyTemplate;
-    use UxInputElementEventsTemplate;
+    use UxInputElementTemplate;
 }

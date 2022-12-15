@@ -2,9 +2,9 @@
 
 namespace SharPie\Controls;
 
-use SharPie\EventsTemplates\UxControlEventsTemplate;
+use SharPie\Templates\UxControlTemplate;
 
 class UxControl
 {
-    use UxControlEventsTemplate;
+    use UxControlTemplate;
 }
