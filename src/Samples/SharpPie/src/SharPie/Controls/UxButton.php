@@ -5,12 +5,13 @@ namespace SharPie\Controls;
 use Peachpie\Avalonia\ControlsTemplates\ButtonTemplate;
 
 use SharPie\Templates\EventsTemplates\UxButtonEventsTemplate;
-use SharPie\Templates\EventsTemplates\UxTemplatedControlEventsTemplate;
+use SharPie\Templates\UxAvaloniaObjectTemplate;
 use SharPie\Templates\UxControlTemplate;
 use SharPie\Templates\UxInputElementTemplate;
+use SharPie\Templates\UxTemplatedControlTemplate;
 
 /**
- * AvaloniaObject
+ * AvaloniaObject +
  * Animatable
  * StyledElement
  * Visual
@@ -18,13 +19,14 @@ use SharPie\Templates\UxInputElementTemplate;
  * Interactive
  * InputElement +
  * Control +
- * TemplatedControl
+ * TemplatedControl +
  * ContentControl
  */
 
 class UxButton extends ButtonTemplate {
+    use UxAvaloniaObjectTemplate;
     use UxInputElementTemplate;
     use UxControlTemplate;
-    use UxTemplatedControlEventsTemplate;
+    use UxTemplatedControlTemplate;
     use UxButtonEventsTemplate;
 }

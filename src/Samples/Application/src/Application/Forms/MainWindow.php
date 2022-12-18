@@ -32,16 +32,15 @@ class MainWindow extends UxWindow {
             $OpenToDoListForm->Width = 300;
         });
 
-        $this->on_SizeChanged(function($SizeChangedEventArgs){
-            echo "Height: ".$SizeChangedEventArgs->NewSize->Height."\n";
-        });
-
-
         $OpenToDoListForm->On_PointerExited(callback : function () use ($OpenToDoListForm){
                 $this->Title = "Панель примеров";
                 $OpenToDoListForm->Width = 90;
         });
 
+
+        $OpenToDoListForm->on_PropertyChanged(callback: function ($AvaloniaPropertyChangedEventArgs){
+            echo $AvaloniaPropertyChangedEventArgs->Property->Name;
+        });
 
 
         $UxStackPanel->Children->Add($OpenToDoListForm);
