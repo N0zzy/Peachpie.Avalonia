@@ -4,7 +4,7 @@ using Pchp.Core;
 
 namespace Peachpie.Avalonia.ControlsTemplates.EventsTemplates;
 
-public static class VisualEventsTemplates
+public static class VisualEventsTemplate
 {
     public static PhpValue OnAttachedToVisualTree(Visual control, Action<VisualTreeAttachmentEventArgs> action) =>
         PhpValue.FromClass(control._setEvent((EventHandler<VisualTreeAttachmentEventArgs>)((_, args) => action(args)),

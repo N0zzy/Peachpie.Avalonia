@@ -3,30 +3,8 @@
 namespace SharPie\Controls;
 
 use Peachpie\Avalonia\ControlsTemplates\ButtonTemplate;
-
-use SharPie\Templates\EventsTemplates\UxButtonEventsTemplate;
-use SharPie\Templates\UxAvaloniaObjectTemplate;
-use SharPie\Templates\UxControlTemplate;
-use SharPie\Templates\UxInputElementTemplate;
-use SharPie\Templates\UxTemplatedControlTemplate;
-
-/**
- * AvaloniaObject +
- * Animatable
- * StyledElement
- * Visual
- * Layoutable
- * Interactive
- * InputElement +
- * Control +
- * TemplatedControl +
- * ContentControl
- */
+use SharPie\Templates\UxButtonTemplate;
 
 class UxButton extends ButtonTemplate {
-    use UxAvaloniaObjectTemplate;
-    use UxInputElementTemplate;
-    use UxControlTemplate;
-    use UxTemplatedControlTemplate;
-    use UxButtonEventsTemplate;
+    use UxButtonTemplate;
 }

@@ -2,9 +2,18 @@
 
 namespace SharPie\Templates;
 
-use SharPie\Templates\EventsTemplates\UxTemplatedControlEventsTemplate;
+use Peachpie\Avalonia\ControlsTemplates\EventsTemplates\TemplatedControlEventsTemplate;
+use Closure;
 
 trait UxTemplatedControlTemplate
 {
-    use UxTemplatedControlEventsTemplate;
+    #Events
+
+    /**
+     * @param Closure $callback
+     * @return $this
+     */
+    public function on_TemplateApplied( Closure $callback) {
+        return TemplatedControlEventsTemplate::OnTemplateApplied($this, $callback);
+    }
 }

@@ -7,5 +7,5 @@ namespace Peachpie.Avalonia.ControlsTemplates;
 /// </summary>
 public class WindowTemplate : Window
 {
-    
+        
 }

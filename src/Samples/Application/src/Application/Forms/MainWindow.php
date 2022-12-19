@@ -37,11 +37,11 @@ class MainWindow extends UxWindow {
                 $OpenToDoListForm->Width = 90;
         });
 
-
+        /*
         $OpenToDoListForm->on_PropertyChanged(callback: function ($AvaloniaPropertyChangedEventArgs){
             echo $AvaloniaPropertyChangedEventArgs->Property->Name;
         });
-
+        */
 
         $UxStackPanel->Children->Add($OpenToDoListForm);
 

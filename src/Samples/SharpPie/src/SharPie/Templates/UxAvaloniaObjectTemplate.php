@@ -2,9 +2,21 @@
 
 namespace SharPie\Templates;
 
-use SharPie\Templates\EventsTemplates\UxAvaloniaObjectEventsTemplate;
+use Peachpie\Avalonia\ControlsTemplates\EventsTemplates\AvaloniaObjectEventsTemplate;
+use Closure;
 
 trait UxAvaloniaObjectTemplate
 {
-    use UxAvaloniaObjectEventsTemplate;
+    #Events
+    /**
+     * @param Closure $callback
+     * @return $this
+     */
+    public function on_PropertyChanged(Closure $callback)
+    {
+        return AvaloniaObjectEventsTemplate::OnPropertyChanged($this, $callback);
+    }
+
+    #Fields
+
 }

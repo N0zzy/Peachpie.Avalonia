@@ -6,10 +6,9 @@ using Pchp.Core;
 
 namespace Peachpie.Avalonia.ControlsTemplates.EventsTemplates;
 
-public static class StyledElementEventsTemplates
+public static class StyledElementEventsTemplate
 {
-    public static PhpValue
-        OnAttachedToLogicalTree(StyledElement control, Action<LogicalTreeAttachmentEventArgs> action) =>
+    public static PhpValue OnAttachedToLogicalTree(StyledElement control, Action<LogicalTreeAttachmentEventArgs> action) =>
         PhpValue.FromClass(control._setEvent((EventHandler<LogicalTreeAttachmentEventArgs>)((_, args) => action(args)),
             h => control.AttachedToLogicalTree += h));
 
