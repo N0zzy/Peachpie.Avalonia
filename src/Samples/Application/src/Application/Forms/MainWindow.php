@@ -5,6 +5,11 @@ namespace Application\Forms;
 use SharPie\Controls\{ UxWindow,UxButton, UxStackPanel };
 use Pchp\Core\PhpValue;
 
+//экспериментальный
+use Peachpie\Avalonia\ControlsTemplates\OpenFileDialogTemplate;
+
+
+
 class MainWindow extends UxWindow {
 
 
@@ -19,11 +24,13 @@ class MainWindow extends UxWindow {
         $this->Content = $UxStackPanel;
 
         $OpenToDoListForm = new UxButton();
-        $OpenToDoListForm->Content("ToDoListForm");
+        $OpenToDoListForm->Content("OpenFileDialog");
 
         $data = 1000.1;
         $OpenToDoListForm->on_Click( callback: function($RoutedEventArgs) use ($OpenToDoListForm, $data){
-            $OpenToDoListForm->Content($data);
+            //$OpenToDoListForm->Content($data);
+            $OpenFileDialogTemplate = new OpenFileDialogTemplate();
+            $OpenFileDialogTemplate->Open($this);
         });
 
 
