@@ -1,13 +1,19 @@
 ﻿using System;
-using System.Text;
 using System.Threading.Tasks;
 using Avalonia.Controls;
+using Pchp.Core;
 
 namespace Peachpie.Avalonia.ControlsTemplates;
 
 public class OpenFileDialogEventArgs: EventArgs
 {
-    public string Files { get; set; }
+    public string[] SelectedFiles { get; set; }
+
+    public OpenFileDialogEventArgs(string[] files)
+    {
+        SelectedFiles = files;
+    }
+    
 }
 
 /// <summary>
@@ -16,22 +22,36 @@ public class OpenFileDialogEventArgs: EventArgs
 [Obsolete("Use Window.StorageProvider API or TopLevel.StorageProvider API")]
 public class OpenFileDialogTemplate : OpenFileDialog
 {
-    public delegate void OpenFileDialogHandler(string[] files);
-    
+    public delegate void OpenFileDialogHandler(object sender, OpenFileDialogEventArgs eventArgs );
     public event OpenFileDialogHandler FileSelected;
     
-    public async Task Open(WindowTemplate window, Action<OpenFileDialogEventArgs> action )
+    public void OnFileSelected(Action<OpenFileDialogEventArgs> action)
     {
-        var dialog = new OpenFileDialog();
-        string[] result;
-        
-        result = await dialog.ShowAsync(window);
+        FileSelected += (_, args) =>  action(args);
+    }
 
-        if (result != null)
+    public OpenFileDialogTemplate(PhpArray filters)
+    {
+        foreach (var filter in filters)
         {
-            FileSelected?.Invoke(result);
+            var s = filter.Value;
+            Filters?.Add(new FileDialogFilter() {Name = s["Name"].ToString(), Extensions = {s[0]["Extensions"].ToString()}});
         }
     }
     
+    /// <summary>
+    /// Открыть диалог выбора файлов
+    /// </summary>
+    /// <param name="window"></param>
+    public async Task Open(WindowTemplate window)
+    {
+        string[] result = await ShowAsync(window);
+        
+        if (result != null)
+        {
+            var eventArgs = new OpenFileDialogEventArgs(result);
+            FileSelected?.Invoke(this, eventArgs);
+        }
+    }
 }
 
