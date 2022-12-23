@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
@@ -24,7 +25,7 @@ public class ButtonTemplate : Button , IStyleable
     public new ButtonTemplate Content(object value = default, BindingMode? bindingMode = null, IValueConverter converter = null, object bindingSource = null, [CallerArgumentExpression("value")] string ps = null)
         => this._setEx(ContentProperty, ps, () => base.Content = value, bindingMode, converter,
             bindingSource);
-    
+
     #region Property
     
     /// <summary>
