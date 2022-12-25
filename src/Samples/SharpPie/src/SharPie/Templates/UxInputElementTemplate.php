@@ -21,7 +21,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_GotFocus(Closure $callback): object {
+    public function on_GotFocus($callback): object {
         return InputElementEventsTemplate::OnGotFocus($this, $callback);
     }
 
@@ -30,7 +30,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_LostFocus(Closure $callback): object
+    public function on_LostFocus($callback): object
     {
         return InputElementEventsTemplate::OnLostFocus($this, $callback);
     }
@@ -40,7 +40,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_KeyDown(Closure $callback): object
+    public function on_KeyDown($callback): object
     {
         return InputElementEventsTemplate::OnKeyDown($this, $callback);
     }
@@ -50,7 +50,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_KeyUp(Closure $callback): object
+    public function on_KeyUp($callback): object
     {
         return InputElementEventsTemplate::OnKeyUp($this, $callback);
     }
@@ -60,7 +60,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_TextInput(Closure $callback): object
+    public function on_TextInput($callback): object
     {
         return InputElementEventsTemplate::OnTextInput($this, $callback);
     }
@@ -70,7 +70,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_TextInputMethodClientRequested(Closure $callback): object
+    public function on_TextInputMethodClientRequested($callback): object
     {
         return InputElementEventsTemplate::OnTextInputMethodClientRequested($this, $callback);
     }
@@ -80,7 +80,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_PointerEntered(Closure $callback)
+    public function on_PointerEntered($callback)
     {
         return InputElementEventsTemplate::OnPointerEntered($this, $callback);
     }
@@ -90,7 +90,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_PointerExited(Closure $callback): object
+    public function on_PointerExited($callback): object
     {
         return InputElementEventsTemplate::OnPointerExited($this, $callback);
     }
@@ -100,7 +100,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_PointerMoved(Closure $callback): object
+    public function on_PointerMoved($callback): object
     {
         return InputElementEventsTemplate::OnPointerMoved($this, $callback);
     }
@@ -110,7 +110,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_PointerPressed(Closure $callback): object
+    public function on_PointerPressed($callback): object
     {
         return InputElementEventsTemplate::OnPointerPressed($this, $callback);
     }
@@ -120,7 +120,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_PointerReleased(Closure $callback): object
+    public function on_PointerReleased($callback): object
     {
         return InputElementEventsTemplate::OnPointerReleased($this, $callback);
     }
@@ -132,7 +132,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_PointerCaptureLost(Closure $callback): object
+    public function on_PointerCaptureLost($callback): object
     {
         return InputElementEventsTemplate::OnPointerCaptureLost($this, $callback);
     }
@@ -142,7 +142,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_PointerWheelChanged(Closure $callback): object
+    public function on_PointerWheelChanged($callback): object
     {
         return InputElementEventsTemplate::OnPointerWheelChanged($this, $callback);
     }
@@ -152,7 +152,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_Tapped(Closure $callback): object
+    public function on_Tapped($callback): object
     {
         return InputElementEventsTemplate::OnTapped($this, $callback);
     }
@@ -162,7 +162,7 @@ trait UxInputElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_DoubleTapped(Closure $callback): object
+    public function on_DoubleTapped($callback): object
     {
         return InputElementEventsTemplate::OnDoubleTapped($this, $callback);
     }

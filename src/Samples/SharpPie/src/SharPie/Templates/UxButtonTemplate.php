@@ -26,7 +26,7 @@ trait UxButtonTemplate
      * @param Closure $callback
      * @return UxButton
      */
-    public function on_Click( Closure $callback) : UxButton
+    public function on_Click($callback) : UxButton
     {
         return ButtonEventsTemplates::OnClick($this, $callback);
     }

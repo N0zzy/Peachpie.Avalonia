@@ -9,5 +9,4 @@ use SharPie\Templates\UxContentControlTemplate;
 class UxContentControl extends ContentControl
 {
     use UxContentControlTemplate;
-
 }

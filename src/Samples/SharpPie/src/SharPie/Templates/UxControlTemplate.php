@@ -13,7 +13,7 @@ trait UxControlTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_ContextRequested(Closure $callback) {
+    public function on_ContextRequested($callback) {
         return ControlEventsTemplate::OnContextRequested($this, $callback);
     }
 
@@ -23,7 +23,7 @@ trait UxControlTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_Loaded(Closure $callback) {
+    public function on_Loaded($callback) {
         return ControlEventsTemplate::OnLoaded($this, $callback);
     }
 
@@ -32,7 +32,7 @@ trait UxControlTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_Unloaded(Closure $callback) {
+    public function on_Unloaded($callback) {
         return ControlEventsTemplate::OnUnloaded($this, $callback);
     }
 
@@ -41,7 +41,7 @@ trait UxControlTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_SizeChanged(Closure $callback) {
+    public function on_SizeChanged($callback) {
         return ControlEventsTemplate::OnSizeChanged($this, $callback);
     }
 }

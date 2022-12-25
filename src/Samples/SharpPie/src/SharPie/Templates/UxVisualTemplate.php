@@ -17,7 +17,7 @@ trait UxVisualTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_AttachedToVisualTree(Closure $callback)
+    public function on_AttachedToVisualTree($callback)
     {
         return VisualEventsTemplate::OnAttachedToVisualTree($this, $callback);
     }
@@ -26,7 +26,7 @@ trait UxVisualTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_DetachedFromVisualTree(Closure $callback)
+    public function on_DetachedFromVisualTree($callback)
     {
         return VisualEventsTemplate::OnDetachedFromVisualTree($this, $callback);
     }

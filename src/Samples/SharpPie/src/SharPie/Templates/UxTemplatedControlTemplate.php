@@ -13,7 +13,7 @@ trait UxTemplatedControlTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_TemplateApplied( Closure $callback) {
+    public function on_TemplateApplied($callback) {
         return TemplatedControlEventsTemplate::OnTemplateApplied($this, $callback);
     }
 }

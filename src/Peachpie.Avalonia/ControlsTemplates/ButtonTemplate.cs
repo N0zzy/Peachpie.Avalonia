@@ -7,8 +7,10 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Data.Converters;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using Avalonia.Styling;
 using Pchp.Core;
+using Peachpie.Avalonia.ControlsTemplates.EventsTemplates;
 using Peachpie.Avalonia.ControlsTemplates.PropertyTemplates;
 
 namespace Peachpie.Avalonia.ControlsTemplates;

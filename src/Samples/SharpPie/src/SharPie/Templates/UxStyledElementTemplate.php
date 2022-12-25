@@ -16,7 +16,7 @@ trait UxStyledElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_AttachedToLogicalTree(Closure $callback)
+    public function on_AttachedToLogicalTree($callback)
     {
         return StyledElementEventsTemplate::OnAttachedToLogicalTree($this, $callback);
     }
@@ -25,7 +25,7 @@ trait UxStyledElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_DetachedFromLogicalTree(Closure $callback)
+    public function on_DetachedFromLogicalTree($callback)
     {
         return StyledElementEventsTemplate::OnDetachedFromLogicalTree($this, $callback);
     }
@@ -34,7 +34,7 @@ trait UxStyledElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_DataContextChanged(Closure $callback)
+    public function on_DataContextChanged($callback)
     {
         return StyledElementEventsTemplate::OnDataContextChanged($this, $callback);
     }
@@ -43,7 +43,7 @@ trait UxStyledElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_Initialized(Closure $callback)
+    public function on_Initialized($callback)
     {
         return StyledElementEventsTemplate::OnInitialized($this, $callback);
     }
@@ -52,7 +52,7 @@ trait UxStyledElementTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_ResourcesChanged(Closure $callback)
+    public function on_ResourcesChanged($callback)
     {
         return StyledElementEventsTemplate::OnResourcesChanged($this, $callback);
     }

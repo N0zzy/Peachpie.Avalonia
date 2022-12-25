@@ -12,7 +12,7 @@ trait UxAvaloniaObjectTemplate
      * @param Closure $callback
      * @return $this
      */
-    public function on_PropertyChanged(Closure $callback)
+    public function on_PropertyChanged($callback)
     {
         return AvaloniaObjectEventsTemplate::OnPropertyChanged($this, $callback);
     }
