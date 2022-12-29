@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
+
 using System.Windows.Input;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Data;
 using Avalonia.Data.Converters;
 using Avalonia.Input;
-using Avalonia.Interactivity;
+using Avalonia.Markup.Declarative;
+using Avalonia.Media;
 using Avalonia.Styling;
 using Pchp.Core;
-using Peachpie.Avalonia.ControlsTemplates.EventsTemplates;
 using Peachpie.Avalonia.ControlsTemplates.PropertyTemplates;
 
 namespace Peachpie.Avalonia.ControlsTemplates;

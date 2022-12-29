@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using Avalonia.Controls;
 using Avalonia.VisualTree;
 using Pchp.Core;
-using Peachpie.Avalonia.ControlsTemplates.EventsTemplates;
+using Peachpie.Avalonia.Experimental;
 
 namespace Peachpie.Avalonia.ControlsTemplates;
 
@@ -41,5 +38,10 @@ public class WindowTemplate : Window
             }
         }
     }
-    
+
+    public void UxEventBindingSet(ButtonTemplate buttonTemplate, string eventName, Closure closure)
+    {
+        UxEventBinding uxEventBinding = new UxEventBinding();
+        uxEventBinding.On(buttonTemplate, eventName, closure );
+    }
 }
