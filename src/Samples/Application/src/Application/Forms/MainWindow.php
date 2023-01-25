@@ -10,13 +10,11 @@ use Peachpie\Avalonia\ControlsTemplates\EventAttribute;
 
 class MainWindow extends UxWindow {
 
-    #[EventAttribute("button1", "on_Click")]
+    public UxOpenFileDialog $UxOpenFileDialog;
 
+    #[EventAttribute("button1", "on_Click")]
     public function Clicked(UxButton $button, $args) {
-        $button->Content = "Кнопка нажата";
-        $array = array();
-        $UxOpenFileDialog = new UxOpenFileDialog($array);
-        $UxOpenFileDialog->Open($this);
+        $this->UxOpenFileDialog->Open($this);
     }
 
     #[EventAttribute("button1", "on_PointerEntered")]
@@ -26,7 +24,7 @@ class MainWindow extends UxWindow {
 
     #[EventAttribute("button1", "on_PointerExited")]
     public function Exited(UxButton $button, $args) {
-        $button->Content = "Курсор вне кнопки";
+        $button->Content = "OpenFileDialog";
     }
 
 
@@ -43,19 +41,30 @@ class MainWindow extends UxWindow {
 
         $OpenToDoListForm = new UxButton();
         $OpenToDoListForm->Name = "button1"; //Уникальный едентификатор кнопки
-        $OpenToDoListForm->Content = "button1";
+        $OpenToDoListForm->Content = "OpenFileDialog";
         $OpenToDoListForm->Width = 150;
 
         $UxStackPanel->Children->Add($OpenToDoListForm);
-      
+
+        $array = array();
+        $this->UxOpenFileDialog = new UxOpenFileDialog($array);
+
+        $this->UxOpenFileDialog->OnFileSelected(function($OpenFileDialogEventArgs){
+                $this->Title =  $OpenFileDialogEventArgs->SelectedFiles[0];
+        });
+
+
         //Экспирементальное навешевание трегеров на контроллы
         $this->setEventsAttribute($UxStackPanel);
+
+
      }
      //Некоторые свойства вызывают ошибку типов, данный метод позволяет её обойти
      private function getContent($value) {
          return PhpValue::FromClass($value);
      }
-     
+
+
      
 
 }
