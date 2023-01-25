@@ -225,7 +225,9 @@ public static class SetProperty
     {
         var path = PropertyPathHelper.GetNameFromPropertyPath(ps);
         var binding = new Binding(path, BindingMode.OneWay);
+#pragma warning disable CS8625 // Литерал, равный NULL, не может быть преобразован в ссылочный тип, не допускающий значение NULL.
         control.BindClass(className, binding, null);
+#pragma warning restore CS8625 // Литерал, равный NULL, не может быть преобразован в ссылочный тип, не допускающий значение NULL.
         return control;
     }
     public static StackTrace GetDeeperStackTrace(int depth) =>

@@ -14,7 +14,9 @@ public static class UxAppBuilderMinimalExtensions
             builder.Instance?.Styles.Add(new FluentTheme(new Uri($"avares://{System.Reflection.Assembly.GetExecutingAssembly().GetName()}")) { Mode = mode }));
     }
 
+#pragma warning disable CS8632 // Аннотацию для ссылочных типов, допускающих значения NULL, следует использовать в коде только в контексте аннотаций "#nullable".
     public static int StartWithClassicDesktopLifetime<T>(this T builder, Action<IClassicDesktopStyleApplicationLifetime> callback, string[]? args, ShutdownMode shutdownMode = ShutdownMode.OnLastWindowClose) where T : AppBuilderBase<T>, new()
+#pragma warning restore CS8632 // Аннотацию для ссылочных типов, допускающих значения NULL, следует использовать в коде только в контексте аннотаций "#nullable".
     {
         var classicDesktopStyleApplicationLifetime = new ClassicDesktopStyleApplicationLifetime
         {
@@ -26,6 +28,8 @@ public static class UxAppBuilderMinimalExtensions
 
         callback?.Invoke(classicDesktopStyleApplicationLifetime);
 
+#pragma warning disable CS8604 // Возможно, аргумент-ссылка, допускающий значение NULL, для параметра "args" в "int ClassicDesktopStyleApplicationLifetime.Start(string[] args)".
         return classicDesktopStyleApplicationLifetime.Start(args);
+#pragma warning restore CS8604 // Возможно, аргумент-ссылка, допускающий значение NULL, для параметра "args" в "int ClassicDesktopStyleApplicationLifetime.Start(string[] args)".
     }
 }

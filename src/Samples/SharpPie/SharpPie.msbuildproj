@@ -2,6 +2,8 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>SharpPie</RootNamespace>
+    <RuntimeVersion>8.1</RuntimeVersion>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="**/*.php" />

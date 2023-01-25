@@ -49,8 +49,6 @@ class MainWindow extends UxWindow {
         $this->UxEventBindingSet($OpenToDoListForm, "OnPointerEntered", function ($args){
             echo "Hello1";
         });
-
-
      }
      //Некоторые свойства вызывают ошибку типов, данный метод позволяет её обойти
      private function getContent($value) {
