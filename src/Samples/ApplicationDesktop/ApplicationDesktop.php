@@ -5,12 +5,13 @@ namespace Application\Desktop;
 use Peachpie\Avalonia\Platform\UxApplication;
 use Application\Forms\MainWindow;
 
-abstract class FluentThemeMode
+abstract class MaterialThemeMode
 {
     public const Light = "Light";
     public const Dark = "Dark";
+    public const Inherit = "Inherit";
 }
 
 $UxApplication = new UxApplication(callback: function () {
     return new MainWindow();
-}, FluentThemeMode : FluentThemeMode::Light);
+}, MaterialThemeMode : MaterialThemeMode::Dark);

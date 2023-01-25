@@ -1,27 +1,31 @@
 ﻿#nullable enable
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Themes.Fluent;
+using Material.Styles.Themes.Base;
+
 
 namespace Peachpie.Avalonia.Platform;
 
 public class UxApplication
 {
-    public UxApplication(Closure closure, string fluentThemeMode , string[]? args = null)
+    public UxApplication(Closure closure, string materialThemeMode , string[]? args = null)
     {
         var builder =  AppBuilder.Configure<Application>();
             builder.UsePlatformDetect();
             
-            switch (fluentThemeMode)
+            switch (materialThemeMode)
             {
                 case "Dark":
-                    UxAppBuilderMinimalExtensions.UseFluentTheme(builder, mode: FluentThemeMode.Dark);
+                    UxAppBuilderMinimalExtensions.UseMaterialTheme(builder, mode: BaseThemeMode.Dark);
                     break;
                 case "Light":
-                    UxAppBuilderMinimalExtensions.UseFluentTheme(builder, mode: FluentThemeMode.Light);
+                    UxAppBuilderMinimalExtensions.UseMaterialTheme(builder, mode: BaseThemeMode.Light);
+                    break;
+                case "Inherit":
+                    UxAppBuilderMinimalExtensions.UseMaterialTheme(builder, mode: BaseThemeMode.Inherit);
                     break;
                 default:
-                    UxAppBuilderMinimalExtensions.UseFluentTheme(builder, mode: FluentThemeMode.Light);
+                    UxAppBuilderMinimalExtensions.UseMaterialTheme(builder, mode: BaseThemeMode.Dark);
                     break;
             }
             

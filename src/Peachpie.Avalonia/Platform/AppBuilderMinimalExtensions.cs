@@ -2,6 +2,9 @@
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Themes.Fluent;
+using Material.Colors;
+using Material.Styles.Themes.Base;
+
 
 namespace Peachpie.Avalonia.Platform;
 
@@ -12,6 +15,19 @@ public static class UxAppBuilderMinimalExtensions
     {
         return builder.AfterSetup(_ =>
             builder.Instance?.Styles.Add(new FluentTheme(new Uri($"avares://{System.Reflection.Assembly.GetExecutingAssembly().GetName()}")) { Mode = mode }));
+    }
+    
+    public static TAppBuilder UseMaterialTheme<TAppBuilder>(this TAppBuilder builder, BaseThemeMode mode = BaseThemeMode.Light , PrimaryColor primaryColor = PrimaryColor.Blue , SecondaryColor secondaryColor = SecondaryColor.LightGreen)
+        where TAppBuilder : AppBuilderBase<TAppBuilder>, new()
+    {
+        return builder.AfterSetup(_ =>
+            
+            builder.Instance?.Styles.Add(new Material.Styles.Themes.MaterialTheme(new Uri($"avares://{System.Reflection.Assembly.GetExecutingAssembly().GetName()}"))
+            {
+                BaseTheme = mode, 
+                PrimaryColor = primaryColor,
+                SecondaryColor = secondaryColor
+            }));
     }
 
 #pragma warning disable CS8632 // Аннотацию для ссылочных типов, допускающих значения NULL, следует использовать в коде только в контексте аннотаций "#nullable".

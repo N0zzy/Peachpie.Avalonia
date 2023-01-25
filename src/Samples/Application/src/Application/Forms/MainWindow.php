@@ -10,18 +10,18 @@ use Peachpie\Avalonia\ControlsTemplates\EventAttribute;
 
 class MainWindow extends UxWindow {
 
-    //#[EventAttribute("button1", "on_Click")]
+    #[EventAttribute("button1", "on_Click")]
 
     public function Clicked(UxButton $button, $args) {
         $button->Content = "Кнопка нажата";
     }
 
-   // #[EventAttribute("button1", "on_PointerEntered")]
+    #[EventAttribute("button1", "on_PointerEntered")]
     public function Entered(UxButton $button, $args) {
         $button->Content = "Курсор на кнопке";
     }
 
-   // #[EventAttribute("button1", "on_PointerExited")]
+    #[EventAttribute("button1", "on_PointerExited")]
     public function Exited(UxButton $button, $args) {
         $button->Content = "Курсор вне кнопки";
     }
@@ -40,15 +40,15 @@ class MainWindow extends UxWindow {
 
         $OpenToDoListForm = new UxButton();
         $OpenToDoListForm->Name = "button1"; //Уникальный едентификатор кнопки
-        $OpenToDoListForm->Content = "Кнопка 1";
+        $OpenToDoListForm->Content = "button1";
+        $OpenToDoListForm->Width = 150;
 
         $UxStackPanel->Children->Add($OpenToDoListForm);
-
+        
+        
+        
+        //Экспирементальное навешевание трегеров на контроллы
         $this->setEventsAttribute($UxStackPanel);
-
-        $this->UxEventBindingSet($OpenToDoListForm, "OnPointerEntered", function ($args){
-            echo "Hello1";
-        });
      }
      //Некоторые свойства вызывают ошибку типов, данный метод позволяет её обойти
      private function getContent($value) {
