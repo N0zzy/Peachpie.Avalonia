@@ -2,7 +2,7 @@
 
 namespace Application\Forms;
 
-use SharPie\Controls\{ UxWindow,UxButton, UxStackPanel };
+use SharPie\Controls\{ UxWindow,UxButton, UxStackPanel, UxOpenFileDialog };
 use Pchp\Core\PhpValue;
 
 use Peachpie\Avalonia\ControlsTemplates\EventAttribute;
@@ -14,6 +14,9 @@ class MainWindow extends UxWindow {
 
     public function Clicked(UxButton $button, $args) {
         $button->Content = "Кнопка нажата";
+        $array = array();
+        $UxOpenFileDialog = new UxOpenFileDialog($array);
+        $UxOpenFileDialog->Open($this);
     }
 
     #[EventAttribute("button1", "on_PointerEntered")]
@@ -44,9 +47,7 @@ class MainWindow extends UxWindow {
         $OpenToDoListForm->Width = 150;
 
         $UxStackPanel->Children->Add($OpenToDoListForm);
-        
-        
-        
+      
         //Экспирементальное навешевание трегеров на контроллы
         $this->setEventsAttribute($UxStackPanel);
      }
