@@ -4,9 +4,10 @@ namespace Application\Forms;
 
 use SharPie\Controls\{ UxWindow,UxButton, UxStackPanel, UxOpenFileDialog };
 use Pchp\Core\PhpValue;
-
 use Peachpie\Avalonia\ControlsTemplates\EventAttribute;
 
+
+use Peachpie\Avalonia\Experimental\ListBoxWrapper;
 
 class MainWindow extends UxWindow {
 
@@ -14,12 +15,13 @@ class MainWindow extends UxWindow {
 
     #[EventAttribute("button1", "on_Click")]
     public function Clicked(UxButton $button, $args) {
+        $button->Content = "Opened";
         $this->UxOpenFileDialog->Open($this);
     }
 
     #[EventAttribute("button1", "on_PointerEntered")]
     public function Entered(UxButton $button, $args) {
-        $button->Content = "Курсор на кнопке";
+        $button->Content = "The cursor on the button";
     }
 
     #[EventAttribute("button1", "on_PointerExited")]
@@ -44,7 +46,16 @@ class MainWindow extends UxWindow {
         $OpenToDoListForm->Content = "OpenFileDialog";
         $OpenToDoListForm->Width = 150;
 
+        $items = [
+            "Item 1",
+            "Item 2",
+            "Item 3",
+        ];
+
+        $listBox = new ListBoxWrapper($items);
+
         $UxStackPanel->Children->Add($OpenToDoListForm);
+        $UxStackPanel->Children->Add($listBox->Control);
 
         $array = array();
         $this->UxOpenFileDialog = new UxOpenFileDialog($array);
