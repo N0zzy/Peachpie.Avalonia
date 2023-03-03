@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Pchp.Core;
 
 namespace Peachpie.Avalonia.Experimental;

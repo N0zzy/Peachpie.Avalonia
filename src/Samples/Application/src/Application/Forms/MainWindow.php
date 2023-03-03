@@ -5,6 +5,7 @@ namespace Application\Forms;
 use SharPie\Controls\{ UxWindow,UxButton, UxStackPanel, UxOpenFileDialog, UxListBox };
 use Pchp\Core\PhpValue;
 use Peachpie\Avalonia\ControlsTemplates\EventAttribute;
+use Avalonia\Controls\SelectionChangedEventArgs;
 
 class MainWindow extends UxWindow {
 
@@ -51,8 +52,8 @@ class MainWindow extends UxWindow {
 
         $ListBox = new UxListBox();
         $ListBox->Items = $items;
-        $ListBox->on('SelectionChanged', function($sender, $e){
-            echo $e->AddedItems;
+        $ListBox->on('SelectionChanged', function( $sender, $e){
+            echo $e;
         });
 
         $UxStackPanel->Children->Add($OpenToDoListForm);

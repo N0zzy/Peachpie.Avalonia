@@ -1,19 +1,19 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Dynamic;
-using System.Reflection;
-using System.Reflection.Emit;
 using Avalonia;
-using Avalonia.Interactivity;
 using Pchp.Core;
-using Pchp.Core.Reflection;
-using Peachpie.Avalonia.ControlsTemplates.EventsTemplates;
-using Convert = Pchp.Core.Convert;
 
 namespace Peachpie.Avalonia.Experimental;
+
+
 public class BaseWrapper<T> where T : AvaloniaObject, new()
 {
         protected T _wrappedObject;
+        
+        static Delegate CreateDelegate(Type type, EventHandler handler)
+        {
+            return (Delegate)type.GetConstructor(new [] { typeof(object), typeof(IntPtr) })
+                .Invoke(new [] { handler.Target, handler.Method.MethodHandle.GetFunctionPointer() });
+        }
         
         public BaseWrapper()
         {
@@ -55,7 +55,11 @@ public class BaseWrapper<T> where T : AvaloniaObject, new()
             if (eventInfo != null)
             {
                 
-                
+               //eventInfo.AddEventHandler(_wrappedObject, myEventHandler );
+               eventInfo.AddEventHandler(_wrappedObject, CreateDelegate(eventInfo.EventHandlerType, (sender, e) =>
+               {
+                   callback.call(null, PhpValue.FromClass(sender), PhpValue.FromClass(e));
+               }));
             }
             else
             {
