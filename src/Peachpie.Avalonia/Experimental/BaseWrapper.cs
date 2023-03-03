@@ -4,22 +4,16 @@ using Pchp.Core;
 
 namespace Peachpie.Avalonia.Experimental;
 
-
 public class BaseWrapper<T> where T : AvaloniaObject, new()
 {
-        protected T _wrappedObject;
+    private readonly T _wrappedObject = new();
         
         static Delegate CreateDelegate(Type type, EventHandler handler)
         {
             return (Delegate)type.GetConstructor(new [] { typeof(object), typeof(IntPtr) })
-                .Invoke(new [] { handler.Target, handler.Method.MethodHandle.GetFunctionPointer() });
+                ?.Invoke(new [] { handler.Target, handler.Method.MethodHandle.GetFunctionPointer() });
         }
-        
-        public BaseWrapper()
-        {
-            _wrappedObject = new T();
-        }
-        
+
         public T Control => _wrappedObject;
 
         public void SetProperty(string propertyName, PhpValue value)
@@ -50,13 +44,10 @@ public class BaseWrapper<T> where T : AvaloniaObject, new()
         
         public void On(string eventName, Closure callback)
         {
-            
             var eventInfo = _wrappedObject.GetType().GetEvent(eventName);
             if (eventInfo != null)
             {
-                
-               //eventInfo.AddEventHandler(_wrappedObject, myEventHandler );
-               eventInfo.AddEventHandler(_wrappedObject, CreateDelegate(eventInfo.EventHandlerType, (sender, e) =>
+                eventInfo.AddEventHandler(_wrappedObject, CreateDelegate(eventInfo.EventHandlerType, (sender, e) =>
                {
                    callback.call(null, PhpValue.FromClass(sender), PhpValue.FromClass(e));
                }));

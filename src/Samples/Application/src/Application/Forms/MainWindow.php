@@ -2,10 +2,11 @@
 
 namespace Application\Forms;
 
-use SharPie\Controls\{ UxWindow,UxButton, UxStackPanel, UxOpenFileDialog, UxListBox };
+use SharPie\Controls\{ UxWindow,UxButton, UxStackPanel, UxOpenFileDialog};
 use Pchp\Core\PhpValue;
 use Peachpie\Avalonia\ControlsTemplates\EventAttribute;
-use Avalonia\Controls\SelectionChangedEventArgs;
+
+use Peachpie\Avalonia\Experimental\UxListBox;
 
 class MainWindow extends UxWindow {
 
@@ -44,14 +45,14 @@ class MainWindow extends UxWindow {
         $OpenToDoListForm->Content = "OpenFileDialog";
         $OpenToDoListForm->Width = 150;
 
-        $items = [
-            "Item 1",
-            "Item 2",
-            "Item 3",
-        ];
-
+     
         $ListBox = new UxListBox();
-        $ListBox->Items = $items;
+        $ListBox->Items = [
+             "Item 1",
+             "Item 2",
+             "Item 3",
+        ];
+        
         $ListBox->on('SelectionChanged', function( $sender, $e){
             echo $e;
         });
