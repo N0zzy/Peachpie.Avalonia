@@ -14,5 +14,5 @@ abstract class MaterialThemeMode
 
 $UxApplication = new UxApplication(callback: function () {
     $MainWindow = new MainWindow();
-    return $MainWindow->Control;
+    return $MainWindow->getComponent();
 }, MaterialThemeMode : MaterialThemeMode::Light);

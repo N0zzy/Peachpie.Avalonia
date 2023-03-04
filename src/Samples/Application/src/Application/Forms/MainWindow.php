@@ -8,6 +8,18 @@ use Peachpie\Avalonia\ControlsTemplates\EventAttribute;
 
 use Peachpie\Avalonia\Controls\ {UxWindow, UxStackPanel, UxListBox , UxButton};
 
+class StackPanel extends UxStackPanel {
+
+}
+
+class ListBox extends UxListBox {
+
+}
+
+class Button extends UxButton {
+
+}
+
 class MainWindow extends UxWindow {
 
 
@@ -18,16 +30,6 @@ class MainWindow extends UxWindow {
         $this->UxOpenFileDialog->Open($this);
     }
 
-    #[EventAttribute("button1", "on_PointerEntered")]
-    public function Entered(UxButton $button, $args) {
-        $button->Content = "The cursor on the button";
-    }
-
-    #[EventAttribute("button1", "on_PointerExited")]
-    public function Exited(UxButton $button, $args) {
-        $button->Content = "OpenFileDialog";
-    }
-
     //Экспирементальное навешевание трегеров на контроллы
     //$this->setEventsAttribute($UxStackPanel);
 
@@ -35,40 +37,33 @@ class MainWindow extends UxWindow {
 
     //Доступ к свойствам компонента через $compoent->Control, либо через SetProperty и GetProperty
 
-    public function __construct() {
+    public function __construct()
+    {
+        $this->Title = "ApplicationDesktop";
+        $this->Width = 400;
+        $this->Height = 400;
 
-        $this->SetProperty("Title","ApplicationDesktop");
-        $this->SetProperty("Width", 400);
-        $this->SetProperty("Height",400);
+        $UxStackPanel = new StackPanel();
 
-        $UxStackPanel =  new UxStackPanel();
+        $this->Content = $UxStackPanel->getComponent();
 
-        $this->Control->Content = $UxStackPanel->Control;
-
-        $ListBox = new UxListBox();
-
+        $ListBox = new ListBox();
         $ListBox->Items = [
-             "Item 1",
-             "Item 2",
-             "Item 3",
+            "Item 1",
+            "Item 2",
+            "Item 3",
         ];
 
-        $UxStackPanel->Control->Children->Add($ListBox->Control);
-
-        $UxButton = new UxButton();
-        $UxButton->SetProperty("Content","Button1") ;
-        $UxButton->on('Click', function( $sender, $e) {
-            $sender->Content = "Tapped";
-        });
-
-        $UxStackPanel->GetProperty("Children")->Add($UxButton->Control);
-     }
-     //Некоторые свойства вызывают ошибку типов, данный метод позволяет её обойти
-     private function getContent($value) {
-         return PhpValue::FromClass($value);
-     }
+        $UxStackPanel->Children->Add($ListBox->getComponent());
 
 
-     
 
+        $UxButton = new Button();
+        $UxButton->Content = "Button1";
+        $UxButton->Width = 100;
+        echo $UxButton->Width;
+
+        $UxStackPanel->Children->Add($UxButton->getComponent());
+
+    }
 }

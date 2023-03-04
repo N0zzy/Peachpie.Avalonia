@@ -7,7 +7,10 @@ namespace Peachpie.Avalonia;
 
 public class AvaloniaWrapper<T> : BaseWrapper<T> where T : AvaloniaObject, new()
 {
-    public T Control => GetWrappedObject();
+    public T GetComponent()
+    {
+        return GetWrappedObject();
+    }
 
     static Delegate CreateDelegate(Type type, EventHandler handler)
     {
@@ -30,4 +33,7 @@ public class AvaloniaWrapper<T> : BaseWrapper<T> where T : AvaloniaObject, new()
                 $"Event '{eventName}' not found on object of type '{GetWrappedObject().GetType().Name}'");
         }
     }
+    
+    
+    
 }

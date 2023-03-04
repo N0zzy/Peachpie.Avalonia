@@ -10,8 +10,8 @@ public class UxListBox : AvaloniaWrapper<ListBox>
 {
     public PhpArray Items
     {
-        set => Control.Items = ConvertItemsToListBoxItems(value);
-        get => ConvertListBoxItemsToItems(Control.Items);
+        set => GetWrappedObject().Items = ConvertItemsToListBoxItems(value);
+        get => ConvertListBoxItemsToItems(GetWrappedObject().Items);
     }
         
     private IEnumerable ConvertItemsToListBoxItems(PhpArray items)
@@ -23,7 +23,7 @@ public class UxListBox : AvaloniaWrapper<ListBox>
             listBoxItem.Content = PhpValue.FromClass(item.Value);
             listBoxItems.Add(listBoxItem);
         }
-
+            
         return listBoxItems;
     }
         
