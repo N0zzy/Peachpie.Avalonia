@@ -11,12 +11,12 @@ public class BaseWrapper<T> where T : new()
         return _wrappedObject;
     }
     
-    public virtual PhpValue __get(PhpValue propertyName)
+    public PhpValue __get(PhpValue propertyName)
     {
         return _getProperty(propertyName);
     }
 
-    public virtual PhpValue __set(PhpValue propertyName, PhpValue value)
+    public PhpValue __set(PhpValue propertyName, PhpValue value)
     {
         _setProperty(propertyName, value);
         return PhpValue.Null;

@@ -69,14 +69,8 @@ class MainWindow extends UxWindow {
         $UxCheckBox = new CheckBox();
 
         $UxButton->on('Click', function($sender, $e) use ($UxCheckBox) {
-
-            if($UxCheckBox->IsChecked){
-                echo $UxCheckBox->IsChecked;
-                $sender->Content = "True";
-            } else {
-                echo $UxCheckBox->IsChecked;
-                $sender->Content = "False";
-            }
+            $IsChecked = $UxCheckBox->IsChecked ? 'true' : 'false';
+            $sender->Content = $IsChecked;
         });
 
         $UxStackPanel->Children->Add($UxButton->getComponent());
