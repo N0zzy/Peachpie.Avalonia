@@ -38,10 +38,4 @@ public class WindowTemplate : Window
             }
         }
     }
-
-    public void UxEventBindingSet(ButtonTemplate buttonTemplate, string eventName, Closure closure)
-    {
-        UxEventBinding uxEventBinding = new UxEventBinding();
-        uxEventBinding.On(buttonTemplate, eventName, closure );
-    }
 }

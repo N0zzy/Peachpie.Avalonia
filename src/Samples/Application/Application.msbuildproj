@@ -10,7 +10,7 @@
     <Folder Include="src\Application" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpPie\SharpPie.msbuildproj" />
+    <ProjectReference Include="..\..\Peachpie.Avalonia\Peachpie.Avalonia.csproj" />
   </ItemGroup>
 
  <!-- 

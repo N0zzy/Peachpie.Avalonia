@@ -1,12 +1,12 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Avalonia.Controls;
 using Pchp.Core;
-using System.Collections.Generic;
 
-namespace Peachpie.Avalonia.Experimental;
+namespace Peachpie.Avalonia.Controls;
 
 [PhpType]
-public class UxListBox : BaseWrapper<ListBox>
+public class UxListBox : AvaloniaWrapper<ListBox>
 {
     public PhpArray Items
     {

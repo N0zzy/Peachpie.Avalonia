@@ -1,61 +1,50 @@
 ﻿using System;
-using Avalonia;
+using System.Reflection;
 using Pchp.Core;
 
 namespace Peachpie.Avalonia.Experimental;
 
-public class BaseWrapper<T> where T : AvaloniaObject, new()
+public class BaseWrapper<T> where T : new()
 {
-    private readonly T _wrappedObject = new();
-        
-        static Delegate CreateDelegate(Type type, EventHandler handler)
-        {
-            return (Delegate)type.GetConstructor(new [] { typeof(object), typeof(IntPtr) })
-                ?.Invoke(new [] { handler.Target, handler.Method.MethodHandle.GetFunctionPointer() });
-        }
-
-        public T Control => _wrappedObject;
-
-        public void SetProperty(string propertyName, PhpValue value)
-        {
-            var property = _wrappedObject.GetType().GetProperty(propertyName);
-            if (property != null)
-            {
-                property.SetValue(_wrappedObject, value);
-            }
-            else
-            {
-                throw new ArgumentException($"Property '{propertyName}' not found on object of type '{_wrappedObject.GetType().Name}'");
-            }
-        }
-
-        public PhpValue GetProperty(string propertyName)
-        {
-            var property = _wrappedObject.GetType().GetProperty(propertyName);
-            if (property != null)
-            {
-                return PhpValue.FromClass(property.GetValue(_wrappedObject));
-            }
-            else
-            {
-                throw new ArgumentException($"Property '{propertyName}' not found on object of type '{_wrappedObject.GetType().Name}'");
-            }
-        }
-        
-        public void On(string eventName, Closure callback)
-        {
-            var eventInfo = _wrappedObject.GetType().GetEvent(eventName);
-            if (eventInfo != null)
-            {
-                eventInfo.AddEventHandler(_wrappedObject, CreateDelegate(eventInfo.EventHandlerType, (sender, e) =>
-               {
-                   callback.call(null, PhpValue.FromClass(sender), PhpValue.FromClass(e));
-               }));
-            }
-            else
-            {
-                throw new ArgumentException($"Event '{eventName}' not found on object of type '{_wrappedObject.GetType().Name}'");
-            }
-        }
+    public T GetWrappedObject()
+    {
+        return _wrappedObject;
     }
+    
+    public void SetProperty(PhpValue propertyName, PhpValue value)
+    {
+        var property = GetWrappedProperty(propertyName, value);
+        
+        if (property != null)
+            property.SetValue(_wrappedObject, value.ToClr());
+        else
+            throw new ArgumentException(
+                $"Property '{propertyName}' not found on object of type '{_wrappedObject.GetType().Name}'");
+    }
+
+    public PhpValue GetProperty(PhpValue propertyName)
+    {
+        var property = GetWrappedProperty(propertyName, propertyName);
+        if (property != null) return PhpValue.FromClr(property.GetValue(_wrappedObject));
+
+        throw new ArgumentException(
+            $"Property '{propertyName}' not found on object of type '{_wrappedObject.GetType().Name}'");
+    }
+    
+    private static Delegate CreateDelegate(Type type, EventHandler handler)
+    {
+        return (Delegate) type.GetConstructor(new[] {typeof(object), typeof(IntPtr)})
+            ?.Invoke(new[] {handler.Target, handler.Method.MethodHandle.GetFunctionPointer()});
+    }
+
+    /**
+     * Searches for the public property with the specified name.
+     */
+    private PropertyInfo GetWrappedProperty(PhpValue propertyName, PhpValue value)
+    {
+        return _wrappedObject.GetType().GetProperty(propertyName.ToString());
+    }
+    
+    private readonly T _wrappedObject = new();
+}
     
