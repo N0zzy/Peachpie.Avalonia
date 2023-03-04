@@ -6,7 +6,7 @@ use Pchp\Core\PhpValue;
 
 use Peachpie\Avalonia\ControlsTemplates\EventAttribute;
 
-use Peachpie\Avalonia\Controls\ {UxWindow, UxStackPanel, UxListBox , UxButton};
+use Peachpie\Avalonia\Controls\ {UxWindow, UxStackPanel, UxListBox , UxButton, UxCheckBox};
 
 class StackPanel extends UxStackPanel {
 
@@ -17,6 +17,10 @@ class ListBox extends UxListBox {
 }
 
 class Button extends UxButton {
+
+}
+
+class CheckBox extends UxCheckBox {
 
 }
 
@@ -61,9 +65,22 @@ class MainWindow extends UxWindow {
         $UxButton = new Button();
         $UxButton->Content = "Button1";
         $UxButton->Width = 100;
-        echo $UxButton->Width;
+
+        $UxCheckBox = new CheckBox();
+
+        $UxButton->on('Click', function($sender, $e) use ($UxCheckBox) {
+
+            if($UxCheckBox->IsChecked){
+                echo $UxCheckBox->IsChecked;
+                $sender->Content = "True";
+            } else {
+                echo $UxCheckBox->IsChecked;
+                $sender->Content = "False";
+            }
+        });
 
         $UxStackPanel->Children->Add($UxButton->getComponent());
+        $UxStackPanel->Children->Add($UxCheckBox->getComponent());
 
     }
 }

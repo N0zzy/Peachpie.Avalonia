@@ -39,23 +39,23 @@ public class BaseWrapper<T> where T : new()
     private PhpValue _getProperty(PhpValue propertyName)
     {
         var property = GetWrappedProperty(propertyName, propertyName);
-        if (property != null) return PhpValue.FromClass(property.GetValue(_wrappedObject));
+        if (property != null) return PhpValue.FromClr(property.GetValue(_wrappedObject));
 
         throw new ArgumentException(
             $"Property '{propertyName}' not found on object of type '{_wrappedObject.GetType().Name}'");
     }
-    
+
     private void _setProperty(PhpValue propertyName, PhpValue value)
     {
         var property = GetWrappedProperty(propertyName, value);
-        
         if (property != null)
             property.SetValue(_wrappedObject, value.ToClr());
+
         else
             throw new ArgumentException(
                 $"Property '{propertyName}' not found on object of type '{_wrappedObject.GetType().Name}'");
     }
-    
+
     private readonly T _wrappedObject = new();
 }
     
