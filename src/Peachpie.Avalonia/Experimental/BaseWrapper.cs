@@ -10,7 +10,7 @@ public class BaseWrapper<T> where T : new()
     {
         return _wrappedObject;
     }
-    
+
     public PhpValue __get(PhpValue propertyName)
     {
         return _getProperty(propertyName);
@@ -21,13 +21,13 @@ public class BaseWrapper<T> where T : new()
         _setProperty(propertyName, value);
         return PhpValue.Null;
     }
-    
+
     private static Delegate CreateDelegate(Type type, EventHandler handler)
     {
         return (Delegate) type.GetConstructor(new[] {typeof(object), typeof(IntPtr)})
             ?.Invoke(new[] {handler.Target, handler.Method.MethodHandle.GetFunctionPointer()});
     }
-    
+
     /**
      * Searches for the public property with the specified name.
      */
@@ -35,7 +35,7 @@ public class BaseWrapper<T> where T : new()
     {
         return _wrappedObject.GetType().GetProperty(propertyName.ToString());
     }
-    
+
     private PhpValue _getProperty(PhpValue propertyName)
     {
         var property = GetWrappedProperty(propertyName, propertyName);

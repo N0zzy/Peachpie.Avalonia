@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using System.Collections.ObjectModel;
 using Avalonia.Controls;
 using Pchp.Core;
 
@@ -9,6 +9,20 @@ namespace Peachpie.Avalonia.Controls;
 [PhpType]
 public class UxListBox : AvaloniaWrapper<ListBox>
 {
+    public UxListBox()
+    {
+        /*
+         var people = new ObservableCollection<PhpValue>
+        {
+            "Tom", "Bob", "Sam"
+        };
+        
+        var te = GetWrappedObject().Items = people;
+        
+        people.Add("ddddddddd");
+        */
+    }
+    
     public PhpArray Items
     {
         set => GetWrappedObject().Items = ConvertItemsToListBoxItems(value);
