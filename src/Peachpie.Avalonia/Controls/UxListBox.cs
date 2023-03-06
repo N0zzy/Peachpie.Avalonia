@@ -1,55 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using Avalonia;
 using Avalonia.Controls;
-using Pchp.Core;
+using Peachpie.Avalonia.Experimental;
 
 namespace Peachpie.Avalonia.Controls;
 
-[PhpType]
 public class UxListBox : AvaloniaWrapper<ListBox>
 {
     public UxListBox()
     {
-        /*
-         var people = new ObservableCollection<PhpValue>
-        {
-            "Tom", "Bob", "Sam"
-        };
+        Items = _items;
         
-        var te = GetWrappedObject().Items = people;
-        
-        people.Add("ddddddddd");
-        */
     }
     
-    public PhpArray Items
+    public UxList Items
     {
-        set => GetWrappedObject().Items = ConvertItemsToListBoxItems(value);
-        get => ConvertListBoxItemsToItems(GetWrappedObject().Items);
+        set => GetWrappedObject().Items = value;
+        get => GetWrappedObject().Items as UxList;
     }
-        
-    private IEnumerable ConvertItemsToListBoxItems(PhpArray items)
-    {
-        var listBoxItems = new List<object>();
-        foreach (var item in items)
-        {
-            var listBoxItem = new ListBoxItem();
-            listBoxItem.Content = PhpValue.FromClass(item.Value);
-            listBoxItems.Add(listBoxItem);
-        }
-            
-        return listBoxItems;
-    }
-        
-    private PhpArray ConvertListBoxItemsToItems(IEnumerable listBoxItems)
-    {
-        var items = new PhpArray();
-        foreach (var listBoxItem in listBoxItems)
-        {
-            items.Add(PhpValue.FromClass(listBoxItem));
-        }
 
-        return items;
+    public void SelectAll()
+    {
+        GetWrappedObject().SelectAll();
     }
+    
+    public void UnSelectAll()
+    {
+        GetWrappedObject().UnselectAll();
+    }
+    
+    public void Arrange(Rect rect)
+    {
+        GetWrappedObject().Arrange(rect);
+    }
+    
+    
+    private UxList _items = new UxList();
 }

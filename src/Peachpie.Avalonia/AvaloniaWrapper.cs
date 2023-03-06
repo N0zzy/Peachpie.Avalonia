@@ -7,11 +7,7 @@ namespace Peachpie.Avalonia;
 
 public class AvaloniaWrapper<T> : BaseWrapper<T> where T : AvaloniaObject, new()
 {
-    public T GetComponent()
-    {
-        return GetWrappedObject();
-    }
-
+  
     static Delegate CreateDelegate(Type type, EventHandler handler)
     {
         return (Delegate) type.GetConstructor(new[] {typeof(object), typeof(IntPtr)})
@@ -25,7 +21,7 @@ public class AvaloniaWrapper<T> : BaseWrapper<T> where T : AvaloniaObject, new()
         {
             eventInfo.AddEventHandler(GetWrappedObject(),
                 CreateDelegate(eventInfo.EventHandlerType,
-                    (sender, e) => { callback.call(null, PhpValue.FromClass(sender), PhpValue.FromClass(e)); }));
+                    (sender, e) => { callback.call(null, PhpValue.FromClass(GetWrappedObject()), PhpValue.FromClass(e)); }));
         }
         else
         {

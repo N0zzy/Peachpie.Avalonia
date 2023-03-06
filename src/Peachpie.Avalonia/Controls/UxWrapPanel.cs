@@ -2,7 +2,7 @@
 
 namespace Peachpie.Avalonia.Controls;
 
-public class UxCanvas : AvaloniaWrapper<Canvas>
+public class UxWrapPanel : AvaloniaWrapper<WrapPanel>
 {
-
+    
 }

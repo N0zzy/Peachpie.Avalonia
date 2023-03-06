@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Pchp.Core;
+using Peachpie.Avalonia.Controls;
 
 namespace Peachpie.Avalonia.ControlsTemplates;
 
@@ -43,9 +44,9 @@ public class OpenFileDialogTemplate : OpenFileDialog
     /// Открыть диалог выбора файлов
     /// </summary>
     /// <param name="window"></param>
-    public async Task Open(WindowTemplate window)
+    public async Task Open(UxWindow window)
     {
-        string[] result = await ShowAsync(window);
+        string[] result = await ShowAsync(window.GetWrappedObject());
         
         if (result != null)
         {

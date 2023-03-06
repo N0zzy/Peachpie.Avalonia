@@ -16,10 +16,9 @@ public class BaseWrapper<T> where T : new()
         return _getProperty(propertyName);
     }
 
-    public PhpValue __set(PhpValue propertyName, PhpValue value)
+    public void __set(PhpValue propertyName, PhpValue value)
     {
         _setProperty(propertyName, value);
-        return PhpValue.Null;
     }
 
     private static Delegate CreateDelegate(Type type, EventHandler handler)
@@ -31,14 +30,14 @@ public class BaseWrapper<T> where T : new()
     /**
      * Searches for the public property with the specified name.
      */
-    private PropertyInfo GetWrappedProperty(PhpValue propertyName, PhpValue value)
+    private PropertyInfo GetWrappedProperty(PhpValue propertyName)
     {
         return _wrappedObject.GetType().GetProperty(propertyName.ToString());
     }
 
     private PhpValue _getProperty(PhpValue propertyName)
     {
-        var property = GetWrappedProperty(propertyName, propertyName);
+        var property = GetWrappedProperty(propertyName);
         if (property != null) return PhpValue.FromClr(property.GetValue(_wrappedObject));
 
         throw new ArgumentException(
@@ -47,10 +46,9 @@ public class BaseWrapper<T> where T : new()
 
     private void _setProperty(PhpValue propertyName, PhpValue value)
     {
-        var property = GetWrappedProperty(propertyName, value);
-        if (property != null)
+        var property = GetWrappedProperty(propertyName);
+        if (property != null) 
             property.SetValue(_wrappedObject, value.ToClr());
-
         else
             throw new ArgumentException(
                 $"Property '{propertyName}' not found on object of type '{_wrappedObject.GetType().Name}'");
