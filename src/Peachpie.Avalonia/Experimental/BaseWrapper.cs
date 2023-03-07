@@ -10,7 +10,7 @@ public class BaseWrapper<T> where T : new()
     {
         return _wrappedObject;
     }
-
+    
     public PhpValue __get(PhpValue propertyName)
     {
         return _getProperty(propertyName);
@@ -20,13 +20,7 @@ public class BaseWrapper<T> where T : new()
     {
         _setProperty(propertyName, value);
     }
-
-    private static Delegate CreateDelegate(Type type, EventHandler handler)
-    {
-        return (Delegate) type.GetConstructor(new[] {typeof(object), typeof(IntPtr)})
-            ?.Invoke(new[] {handler.Target, handler.Method.MethodHandle.GetFunctionPointer()});
-    }
-
+    
     /**
      * Searches for the public property with the specified name.
      */
@@ -38,7 +32,10 @@ public class BaseWrapper<T> where T : new()
     private PhpValue _getProperty(PhpValue propertyName)
     {
         var property = GetWrappedProperty(propertyName);
-        if (property != null) return PhpValue.FromClr(property.GetValue(_wrappedObject));
+        if (property != null)
+        {
+            return PhpValue.FromClr(property.GetValue(_wrappedObject));
+        }
 
         throw new ArgumentException(
             $"Property '{propertyName}' not found on object of type '{_wrappedObject.GetType().Name}'");
@@ -47,11 +44,15 @@ public class BaseWrapper<T> where T : new()
     private void _setProperty(PhpValue propertyName, PhpValue value)
     {
         var property = GetWrappedProperty(propertyName);
-        if (property != null) 
+        if (property != null)
+        {
             property.SetValue(_wrappedObject, value.ToClr());
+        }
         else
+        {
             throw new ArgumentException(
                 $"Property '{propertyName}' not found on object of type '{_wrappedObject.GetType().Name}'");
+        }
     }
 
     private readonly T _wrappedObject = new();

@@ -10,7 +10,7 @@ use Peachpie\Avalonia\Controls\ {
     UxCheckBox,
     UxCanvas
 };
-
+use Peachpie\Avalonia\Experimental\X;
 ############Классы заглушки#########
 class StackPanel extends UxStackPanel {
 
@@ -52,9 +52,11 @@ class MainWindow extends UxWindow {
 
         $UxCheckBox = new CheckBox();
 
-        $UxButton->on('Click', function($sender, $e) use ($UxCheckBox, $ListBox ) {
+        $str = 100000;
+
+        $UxButton->on('Click', function($sender, $e) use ($UxCheckBox, $ListBox, $str ) {
             $IsChecked = $UxCheckBox->IsChecked ? 'AddToList - true' : 'AddToList - false';
-            $ListBox->Items->Add(''.$IsChecked); //Вылезет Error: A scalar of type 'string' used as an object добавьте "".
+            $ListBox->Items->Add($IsChecked);
             $sender->Content = $IsChecked;
         });
 

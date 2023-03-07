@@ -5,7 +5,7 @@ using Pchp.Core;
 using Peachpie.Avalonia.Controls;
 
 namespace Peachpie.Avalonia.ControlsTemplates;
-
+/*
 public class OpenFileDialogEventArgs: EventArgs
 {
     public string[] SelectedFiles { get; set; }
@@ -56,3 +56,4 @@ public class OpenFileDialogTemplate : OpenFileDialog
     }
 }
 
+*/

@@ -10,12 +10,6 @@ namespace Peachpie.Avalonia.Controls;
 [PhpType]
 public class UxWindow : AvaloniaWrapper<Window>
 {
-
-    public UxWindow()
-    {
-        
-    }
-    
     
     /// <summary>
     /// Заменить эту  страшную штуку
