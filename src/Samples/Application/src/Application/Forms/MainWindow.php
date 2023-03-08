@@ -8,7 +8,8 @@ use Peachpie\Avalonia\Controls\ {
     UxListBox,
     UxButton,
     UxCheckBox,
-    UxCanvas
+    UxCanvas,
+    Primitives\UxUniformGrid
 };
 
 class MainWindow extends UxWindow {
@@ -30,15 +31,15 @@ class MainWindow extends UxWindow {
         $UxButton->Name = "button1";
         $UxButton->Content = "Button1";
         $UxButton->Width = $this->Width/2;
+
       
         $UxCheckBox = new UxCheckBox();
 
-        $str = 100000;
-
-        $UxButton->on('Click', function($sender, $e) use ($UxCheckBox, $ListBox, $str ) {
+        $UxButton->on('Click', function($sender, $e) use ($UxCheckBox, $ListBox) {
             $IsChecked = $UxCheckBox->IsChecked ? 'AddToList - true' : 'AddToList - false';
             $ListBox->Items->Add($IsChecked);
             $sender->Content = $IsChecked;
+            
         });
 
         $UxStackPanel->Children->Add($ListBox->GetWrappedObject());
@@ -47,5 +48,11 @@ class MainWindow extends UxWindow {
 
        
         $this->Content = $UxStackPanel->GetWrappedObject();
+
+        $UxUniformGrid = new UxUniformGrid();
+        $button2 = new UxButton();
+        $UxUniformGrid->Children->Add($button2->GetWrappedObject());
+        $UxStackPanel->Children->Add($UxUniformGrid->GetWrappedObject());
     }
+
 }

@@ -8,7 +8,6 @@ namespace Peachpie.Avalonia;
 
 public class AvaloniaWrapper<T> : BaseWrapper<T> where T : Control, new()
 {
-    public string Avalonia = ";;;;";
     
     public void On(PhpValue eventName, Closure callback)
     {

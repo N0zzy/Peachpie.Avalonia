@@ -40,7 +40,7 @@ public class BaseWrapper<T> where T : new()
         }
 
         throw new ArgumentException(
-            $"Property '{propertyName}' not found on object of type '{_wrappedObject.GetType().Name}'");
+            $"Property '{propertyName}' not found on object of type 'Ux{_wrappedObject.GetType().Name}'");
     }
 
     private void _setProperty(PhpValue propertyName, PhpValue value)
@@ -53,7 +53,7 @@ public class BaseWrapper<T> where T : new()
         else
         {
             throw new ArgumentException(
-                $"Property '{propertyName}' not found on object of type '{_wrappedObject.GetType().Name}'");
+                $"Property '{propertyName}' not found on object of type 'Ux{_wrappedObject.GetType().Name}'");
         }
     }
 
