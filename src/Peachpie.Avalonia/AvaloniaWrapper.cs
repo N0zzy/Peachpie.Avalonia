@@ -1,12 +1,15 @@
 ﻿using System;
 using Avalonia;
+using Avalonia.Controls;
 using Pchp.Core;
 using Peachpie.Avalonia.Experimental;
 
 namespace Peachpie.Avalonia;
 
-public class AvaloniaWrapper<T> : BaseWrapper<T> where T : AvaloniaObject, new()
+public class AvaloniaWrapper<T> : BaseWrapper<T> where T : Control, new()
 {
+    public string Avalonia = ";;;;";
+    
     public void On(PhpValue eventName, Closure callback)
     {
         var eventInfo = GetWrappedObject().GetType().GetEvent(eventName.ToString());

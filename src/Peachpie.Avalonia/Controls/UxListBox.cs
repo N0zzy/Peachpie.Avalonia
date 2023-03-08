@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Pchp.Core;
 using Peachpie.Avalonia.Experimental;
 
 namespace Peachpie.Avalonia.Controls;
@@ -34,5 +35,5 @@ public class UxListBox : AvaloniaWrapper<ListBox>
     }
     
     
-    private UxList _items = new UxList();
+    private UxList _items = new();
 }

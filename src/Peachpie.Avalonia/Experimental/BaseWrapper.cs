@@ -6,6 +6,8 @@ namespace Peachpie.Avalonia.Experimental;
 
 public class BaseWrapper<T> where T : new()
 {
+    internal PhpArray __peach__runtimeFields;
+    
     public T GetWrappedObject()
     {
         return _wrappedObject;

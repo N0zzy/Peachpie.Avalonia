@@ -5,5 +5,5 @@ namespace Peachpie.Avalonia.Controls;
 
 public class UxButton : AvaloniaWrapper<Button>
 {
-    
+
 }
