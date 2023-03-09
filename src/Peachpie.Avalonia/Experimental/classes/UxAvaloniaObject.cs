@@ -119,7 +119,7 @@ public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new(
         GetWrappedObject().EndBatchUpdate();
     }
 
-    // public void EndBatchUpdate()
+    // public void GetBaseValue()
     // {
     //     GetWrappedObject().GetBaseValue();
     // }
