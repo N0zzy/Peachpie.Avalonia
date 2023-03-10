@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.LogicalTree;
 using Avalonia.Styling;
-using Peachpie.Avalonia.Controls.Animation;
+using Peachpie.Avalonia.Animation;
 
 namespace Peachpie.Avalonia;
 

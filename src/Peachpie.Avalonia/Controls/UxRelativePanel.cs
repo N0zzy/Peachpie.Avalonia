@@ -2,7 +2,7 @@
 
 namespace Peachpie.Avalonia.Controls;
 
-public class UxRelativePanel : AvaloniaWrapper<RelativePanel>
+public class UxRelativePanel : UxAvaloniaWrapper<RelativePanel>
 {
     
 }

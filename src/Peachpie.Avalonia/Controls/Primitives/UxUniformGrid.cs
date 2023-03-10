@@ -2,7 +2,7 @@
 
 namespace Peachpie.Avalonia.Controls.Primitives;
 
-public class UxUniformGrid : AvaloniaWrapper<UniformGrid>
+public class UxUniformGrid : UxAvaloniaWrapper<UniformGrid>
 {
     
 }

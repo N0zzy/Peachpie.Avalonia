@@ -2,7 +2,7 @@
 
 namespace Peachpie.Avalonia.Controls;
 
-public class UxDockPanel : AvaloniaWrapper<DockPanel>
+public class UxDockPanel : UxAvaloniaWrapper<DockPanel>
 {
     
 }

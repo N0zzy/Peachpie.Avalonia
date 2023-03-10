@@ -4,7 +4,7 @@ using Peachpie.Avalonia.Experimental;
 
 namespace Peachpie.Avalonia.Controls;
 
-public class UxListBox : AvaloniaWrapper<ListBox>
+public class UxListBox : UxAvaloniaWrapper<ListBox>
 {
     public UxListBox()
     {

@@ -2,7 +2,7 @@
 
 namespace Peachpie.Avalonia.Controls;
 
-public class UxWrapPanel : AvaloniaWrapper<WrapPanel>
+public class UxWrapPanel : UxAvaloniaWrapper<WrapPanel>
 {
     
 }

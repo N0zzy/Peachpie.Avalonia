@@ -1,7 +1,7 @@
 ﻿using Avalonia.Animation;
 using Peachpie.Avalonia.Experimental.classes;
 
-namespace Peachpie.Avalonia.Controls.Animation;
+namespace Peachpie.Avalonia.Animation;
 
 /// <summary>
 /// Base class for all animatable objects.

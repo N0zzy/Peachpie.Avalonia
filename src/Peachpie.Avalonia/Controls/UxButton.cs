@@ -4,10 +4,12 @@ using Pchp.Core;
 
 namespace Peachpie.Avalonia.Controls;
 
-public class UxButton : AvaloniaWrapper<Button>
+public class UxButton<T> : UxContentControl<T> where T : Button, new()
 {
-    public UxButton()
-    {
-        
-    }
+    
+}
+
+public class UxButton : UxButton<Button>
+{
+    
 }

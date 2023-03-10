@@ -8,7 +8,7 @@ using Peachpie.Avalonia.ControlsTemplates;
 namespace Peachpie.Avalonia.Controls;
 
 [PhpType]
-public class UxWindow : AvaloniaWrapper<Window>
+public class UxWindow : UxAvaloniaWrapper<Window>
 {
     
     /// <summary>
