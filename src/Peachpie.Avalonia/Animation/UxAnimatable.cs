@@ -1,5 +1,4 @@
 ﻿using Avalonia.Animation;
-using Peachpie.Avalonia.Experimental.classes;
 
 namespace Peachpie.Avalonia.Animation;
 

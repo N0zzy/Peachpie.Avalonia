@@ -2,15 +2,15 @@
 
 namespace Application\Forms;
 
-use Peachpie\Avalonia\Controls\ {
+use Peachpie\Avalonia\UxAvaloniaObject;
+use Peachpie\Avalonia\Controls\{ClickMode,
     UxWindow,
     UxStackPanel,
     UxListBox,
     UxButton,
     UxCheckBox,
     UxCanvas,
-    Primitives\UxUniformGrid
-};
+    Primitives\UxUniformGrid};
 
 class MainWindow extends UxWindow {
 
@@ -35,12 +35,15 @@ class MainWindow extends UxWindow {
       
         $UxCheckBox = new UxCheckBox();
 
-        $UxButton->on('Click', function($sender, $e) use ($UxCheckBox, $ListBox) {
+        $UxButton->on('Click', function(UxButton $sender, $e) use ($UxCheckBox, $ListBox) {
             $IsChecked = $UxCheckBox->IsChecked ? 'AddToList - true' : 'AddToList - false';
             $ListBox->Items->Add($IsChecked);
             $sender->Content = $IsChecked;
-            
         });
+
+
+        $UxButton->ClickMode = ClickMode::Release;
+
 
         $UxStackPanel->Children->Add($ListBox->GetWrappedObject());
         $UxStackPanel->Children->Add($UxButton->GetWrappedObject());
@@ -49,10 +52,8 @@ class MainWindow extends UxWindow {
        
         $this->Content = $UxStackPanel->GetWrappedObject();
 
-        $UxUniformGrid = new UxUniformGrid();
-        $button2 = new UxButton();
-        $UxUniformGrid->Children->Add($button2->GetWrappedObject());
-        $UxStackPanel->Children->Add($UxUniformGrid->GetWrappedObject());
+        $UxAvaloniaObject = new UxAvaloniaObject();
+
     }
 
 }
