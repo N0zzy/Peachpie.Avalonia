@@ -2,9 +2,7 @@
 
 namespace Application\Forms;
 
-use Peachpie\Avalonia\UxAvaloniaObject;
-use Peachpie\Avalonia\Controls\{ClickMode,
-    UxWindow,
+use Peachpie\Avalonia\Controls\{UxWindow,
     UxStackPanel,
     UxListBox,
     UxButton,
@@ -42,17 +40,12 @@ class MainWindow extends UxWindow {
         });
 
 
-        $UxButton->ClickMode = ClickMode::Release;
-
-
         $UxStackPanel->Children->Add($ListBox->GetWrappedObject());
         $UxStackPanel->Children->Add($UxButton->GetWrappedObject());
         $UxStackPanel->Children->Add($UxCheckBox->GetWrappedObject());
 
        
         $this->Content = $UxStackPanel->GetWrappedObject();
-
-        $UxAvaloniaObject = new UxAvaloniaObject();
 
     }
 
