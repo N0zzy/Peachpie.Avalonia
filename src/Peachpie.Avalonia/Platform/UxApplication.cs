@@ -1,6 +1,10 @@
 ﻿#nullable enable
+using System;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
+using Material.Colors;
+using Material.Styles.Themes;
 using Material.Styles.Themes.Base;
 
 
@@ -8,30 +12,26 @@ namespace Peachpie.Avalonia.Platform;
 
 public class UxApplication
 {
-    public UxApplication(Closure closure, string materialThemeMode , string[]? args = null)
+    public UxApplication(Closure closure, string[]? args = null)
     {
-        var builder =  AppBuilder.Configure<Application>();
-            builder.UsePlatformDetect();
-            
-            switch (materialThemeMode)
-            {
-                case "Dark":
-                    UxAppBuilderMinimalExtensions.UseMaterialTheme(builder, mode: BaseThemeMode.Dark);
-                    break;
-                case "Light":
-                    UxAppBuilderMinimalExtensions.UseMaterialTheme(builder, mode: BaseThemeMode.Light);
-                    break;
-                case "Inherit":
-                    UxAppBuilderMinimalExtensions.UseMaterialTheme(builder, mode: BaseThemeMode.Inherit);
-                    break;
-                default:
-                    UxAppBuilderMinimalExtensions.UseMaterialTheme(builder, mode: BaseThemeMode.Dark);
-                    break;
-            }
-            
-            builder.StartWithClassicDesktopLifetime(desktop =>
-            {
-                desktop.MainWindow = (Window) closure.__invoke().ToClass();
-            }, args );
+        var lifetime = new ClassicDesktopStyleApplicationLifetime
+            { Args = args, ShutdownMode = ShutdownMode.OnLastWindowClose };
+
+        AppBuilder.Configure<Application>()
+            .UsePlatformDetect()
+            .AfterSetup(b => b.Instance?.Styles.Add(
+                new MaterialTheme(new Uri($"avares://{System.Reflection.Assembly.GetExecutingAssembly().GetName()}"))
+                {
+                    BaseTheme = BaseThemeMode.Dark,
+                    PrimaryColor = PrimaryColor.LightBlue,
+                    SecondaryColor = SecondaryColor.Blue
+                }))
+            .SetupWithLifetime(lifetime);
+
+        lifetime.MainWindow = (Window)closure.__invoke().ToClass();
+
+        lifetime.Start(args);
     }
+    
 }
+

@@ -14,11 +14,6 @@ namespace Peachpie.Avalonia;
 /// </remarks>
 public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new()
 {
-  
-    public void BeginBatchUpdate()
-    {
-        GetWrappedObject().BeginBatchUpdate();
-    }
     
     /*
     /// <summary>
@@ -61,11 +56,6 @@ public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new(
     public void CoerceValue(AvaloniaProperty property)
     {
         GetWrappedObject().CoerceValue(property);
-    }
-    
-    public void EndBatchUpdate()
-    {
-        GetWrappedObject().EndBatchUpdate();
     }
     
     /// <summary>
