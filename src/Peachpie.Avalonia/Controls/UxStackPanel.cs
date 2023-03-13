@@ -3,7 +3,18 @@ using Pchp.Core;
 
 namespace Peachpie.Avalonia.Controls;
 
-public class UxStackPanel : UxAvaloniaWrapper<StackPanel>
+/// <summary>
+/// A panel which lays out its children horizontally or vertically.
+/// </summary>
+public class UxStackPanel<T> : UxPanel<T> where T : StackPanel, new()
 {
+    
+}
 
+/// <summary>
+/// A panel which lays out its children horizontally or vertically.
+/// </summary>
+public class UxStackPanel : UxStackPanel<StackPanel>
+{
+    
 }
