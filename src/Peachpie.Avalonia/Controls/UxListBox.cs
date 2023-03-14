@@ -1,5 +1,8 @@
-﻿using Avalonia;
+﻿using System;
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Media;
+using Pchp.Core;
 using Peachpie.Avalonia.Collections;
 using Peachpie.Avalonia.Controls.Primitives;
 using Peachpie.Avalonia.Experimental;

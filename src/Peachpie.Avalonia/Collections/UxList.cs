@@ -3,7 +3,7 @@ using Pchp.Core;
 
 namespace Peachpie.Avalonia.Collections;
 
-public class UxList : AvaloniaList<PhpValue>
+public class UxList : AvaloniaList<object>
 {
     
 }

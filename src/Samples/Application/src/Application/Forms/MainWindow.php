@@ -2,13 +2,7 @@
 
 namespace Application\Forms;
 
-use Peachpie\Avalonia\Controls\{
-    UxWindow,
-    UxStackPanel,
-    UxListBox,
-    UxButton,
-    UxCheckBox
-};
+use Peachpie\Avalonia\Controls\{UxCarousel, UxWindow, UxStackPanel, UxListBox, UxButton, UxCheckBox};
 use Peachpie\Avalonia\Layout\HorizontalAlignment;
 
 class MainWindow extends UxWindow
@@ -26,7 +20,6 @@ class MainWindow extends UxWindow
         $ListBox = new UxListBox();
         $ListBox->Items->Add('Hello World');
 
-
         $UxButton = new UxButton();
         $UxButton->Name = "button1";
         $UxButton->Content = "Button1";
@@ -35,13 +28,11 @@ class MainWindow extends UxWindow
 
 
         $UxCheckBox = new UxCheckBox();
-        $UxCheckBox->HorizontalAlignment = HorizontalAlignment::Right;
 
-        $UxButton->on('Click', function (UxButton $sender, $e) use ($UxCheckBox, $ListBox) {
+        $data = "text";
+        $UxButton->on('Click', function (UxButton $sender, $e) use ($UxCheckBox, $ListBox, $data) {
             $IsChecked = $UxCheckBox->IsChecked ? 'AddToList - true' : 'AddToList - false';
             $ListBox->Items->Add($IsChecked);
-            $sender->Content = $IsChecked;
-
         });
 
 
@@ -49,8 +40,9 @@ class MainWindow extends UxWindow
         $UxStackPanel->Children->Add($UxButton->GetWrappedObject());
         $UxStackPanel->Children->Add($UxCheckBox->GetWrappedObject());
 
-        $this->Content = $UxStackPanel->GetWrappedObject();
 
+
+        $this->Content = $UxStackPanel->GetWrappedObject();
     }
 
 }
