@@ -13,7 +13,7 @@ public enum HorizontalAlignment
     /// The control aligns itself to the left of the parent control.
     /// </summary>
     Left,
-    /// <summary>The control centers itself in the parent control.</summary>
+        /// <summary>The control centers itself in the parent control.</summary>
     Center,
     /// <summary>
     /// The control aligns itself to the right of the parent control.
