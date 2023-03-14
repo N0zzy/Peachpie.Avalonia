@@ -3,7 +3,7 @@
   "description": "ApplicationDesktop",
   "type": "exe",
   "require": {
-    "php": ">=8.0.0"
+    "php": ">=8.1"
   },
   "license": "MIT",
   "authors": [ { "name": "Maxim Rakov" } ],

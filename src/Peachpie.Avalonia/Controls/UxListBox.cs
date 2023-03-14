@@ -1,15 +1,19 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Peachpie.Avalonia.Collections;
+using Peachpie.Avalonia.Controls.Primitives;
 using Peachpie.Avalonia.Experimental;
 
 namespace Peachpie.Avalonia.Controls;
 
-public class UxListBox : UxAvaloniaWrapper<ListBox>
+/// <summary>
+/// An <see cref="UxItemsControl"/> in which individual items can be selected.
+/// </summary>
+public class UxListBox<T> : UxSelectingItemsControl<T> where T : ListBox, new()
 {
     public UxListBox()
     {
         Items = _items;
-        
     }
     
     public UxList Items
@@ -35,4 +39,12 @@ public class UxListBox : UxAvaloniaWrapper<ListBox>
     
     
     private UxList _items = new();
+}
+
+/// <summary>
+/// An <see cref="UxItemsControl"/> in which individual items can be selected.
+/// </summary>
+public class UxListBox : UxListBox<ListBox>
+{
+    
 }

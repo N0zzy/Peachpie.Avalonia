@@ -1,7 +1,7 @@
 ﻿using Avalonia.Collections;
 using Pchp.Core;
 
-namespace Peachpie.Avalonia.Experimental;
+namespace Peachpie.Avalonia.Collections;
 
 public class UxList : AvaloniaList<PhpValue>
 {

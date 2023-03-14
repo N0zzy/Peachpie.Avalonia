@@ -2,13 +2,14 @@
 
 namespace Application\Forms;
 
-use Peachpie\Avalonia\Controls\{UxWindow,
+use Peachpie\Avalonia\Controls\{ClickMode,
+    UxWindow,
     UxStackPanel,
     UxListBox,
     UxButton,
     UxCheckBox,
-    UxCanvas,
     Primitives\UxUniformGrid};
+
 
 class MainWindow extends UxWindow {
 
@@ -39,12 +40,13 @@ class MainWindow extends UxWindow {
             $sender->Content = $IsChecked;
         });
 
+        $UxButton->ClickMode = ClickMode::Release;
+
 
         $UxStackPanel->Children->Add($ListBox->GetWrappedObject());
         $UxStackPanel->Children->Add($UxButton->GetWrappedObject());
         $UxStackPanel->Children->Add($UxCheckBox->GetWrappedObject());
 
-       
         $this->Content = $UxStackPanel->GetWrappedObject();
 
     }

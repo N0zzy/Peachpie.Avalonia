@@ -4,11 +4,12 @@ using Avalonia.Controls;
 using Avalonia.VisualTree;
 using Pchp.Core;
 using Peachpie.Avalonia.ControlsTemplates;
+using Peachpie.Avalonia.Experimental;
 
 namespace Peachpie.Avalonia.Controls;
 
 [PhpType]
-public class UxWindow : UxAvaloniaWrapper<Window>
+public class UxWindow<T> : BaseWrapper<T> where T : Window, new()
 {
     
     /// <summary>
@@ -40,4 +41,24 @@ public class UxWindow : UxAvaloniaWrapper<Window>
             }
         }
     }
+
+    public void Show()
+    {
+        GetWrappedObject().Show();
+    }
+    
+    public void Hide()
+    {
+        GetWrappedObject().Hide();
+    }
+    
+    public void Close()
+    {
+        GetWrappedObject().Close();
+    }
+}
+
+public class UxWindow : UxWindow<Window>
+{
+    
 }
