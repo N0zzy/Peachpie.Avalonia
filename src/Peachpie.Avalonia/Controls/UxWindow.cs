@@ -21,8 +21,7 @@ public class UxWindow<T> : BaseWrapper<T> where T : Window, new()
         {
             var attribute = method.GetCustomAttribute<EventAttribute>();
             if (attribute != null)
-            {
-                //Перечисляет IVisual и его потомков в визуальном дереве.
+            //Перечисляет IVisual и его потомков в визуальном дереве.
                 foreach (var value in panel.GetSelfAndVisualDescendants())
                 {
                     var obj = value as Control;
@@ -38,7 +37,6 @@ public class UxWindow<T> : BaseWrapper<T> where T : Window, new()
                         });
                     }
                 }
-            }
         }
     }
 

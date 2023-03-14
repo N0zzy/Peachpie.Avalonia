@@ -2,16 +2,17 @@
 
 namespace Application\Forms;
 
-use Peachpie\Avalonia\Controls\{ClickMode,
+use Peachpie\Avalonia\Controls\{
     UxWindow,
     UxStackPanel,
     UxListBox,
     UxButton,
-    UxCheckBox,
-    Primitives\UxUniformGrid};
+    UxCheckBox
+};
+use Peachpie\Avalonia\Layout\HorizontalAlignment;
 
-
-class MainWindow extends UxWindow {
+class MainWindow extends UxWindow
+{
 
     public function __construct()
     {
@@ -29,18 +30,19 @@ class MainWindow extends UxWindow {
         $UxButton = new UxButton();
         $UxButton->Name = "button1";
         $UxButton->Content = "Button1";
-        $UxButton->Width = $this->Width/2;
+        $UxButton->Width = $this->Width / 2;
+        $UxButton->HorizontalAlignment = HorizontalAlignment::Left;
 
-      
+
         $UxCheckBox = new UxCheckBox();
+        $UxCheckBox->HorizontalAlignment = HorizontalAlignment::Right;
 
-        $UxButton->on('Click', function(UxButton $sender, $e) use ($UxCheckBox, $ListBox) {
+        $UxButton->on('Click', function (UxButton $sender, $e) use ($UxCheckBox, $ListBox) {
             $IsChecked = $UxCheckBox->IsChecked ? 'AddToList - true' : 'AddToList - false';
             $ListBox->Items->Add($IsChecked);
             $sender->Content = $IsChecked;
-        });
 
-        $UxButton->ClickMode = ClickMode::Release;
+        });
 
 
         $UxStackPanel->Children->Add($ListBox->GetWrappedObject());

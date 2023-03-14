@@ -18,7 +18,7 @@ public class UxButton<T> : UxContentControl<T> where T : Button, new()
 {
     public UxButton()
     {
-        //GetWrappedObject().Content;
+        //GetWrappedObject().VerticalAlignment;
     }
     /// <summary>
     /// Gets or sets a value indicating how the <see cref="Button"/> should react to clicks.
