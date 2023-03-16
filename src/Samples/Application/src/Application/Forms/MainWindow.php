@@ -11,6 +11,7 @@ class MainWindow extends UxWindow
     public function __construct()
     {
         $this->Title = "ApplicationDesktop";
+        $this->Name = "MainWindow";
         $this->Width = 400;
         $this->Height = 400;
 
@@ -29,17 +30,18 @@ class MainWindow extends UxWindow
 
         $UxCheckBox = new UxCheckBox();
 
-        $data = "text";
+        $data = $this;
         $UxButton->on('Click', function (UxButton $sender, $e) use ($UxCheckBox, $ListBox, $data) {
             $IsChecked = $UxCheckBox->IsChecked ? 'AddToList - true' : 'AddToList - false';
             $ListBox->Items->Add($IsChecked);
-        });
 
+            $newWindow = new NewWindow();
+            $newWindow->Show();
+        });
 
         $UxStackPanel->Children->Add($ListBox->GetWrappedObject());
         $UxStackPanel->Children->Add($UxButton->GetWrappedObject());
         $UxStackPanel->Children->Add($UxCheckBox->GetWrappedObject());
-
 
 
         $this->Content = $UxStackPanel->GetWrappedObject();
