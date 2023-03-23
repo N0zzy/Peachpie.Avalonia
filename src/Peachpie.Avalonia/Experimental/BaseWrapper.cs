@@ -4,14 +4,21 @@ using Pchp.Core;
 
 namespace Peachpie.Avalonia.Experimental;
 
-public class BaseWrapper<T> where T : new()
+public class BaseWrapper<T>
 {
     internal PhpArray __peach__runtimeFields;
-
-    public T GetWrappedObject()
+    
+    public BaseWrapper()
     {
-        return _wrappedObject;
+        _wrappedObject = Activator.CreateInstance<T>();
     }
+
+    public BaseWrapper(T wrappedObject)
+    {
+        _wrappedObject = wrappedObject ?? throw new ArgumentNullException(nameof(wrappedObject));
+    }
+
+    public T WrappedObject => _wrappedObject;
     
     public PhpValue __get(string propertyName)
     {
@@ -52,14 +59,14 @@ public class BaseWrapper<T> where T : new()
     
     public void On(string eventName, Closure callback)
     {
-        var eventInfo = GetWrappedObject().GetType().GetEvent(eventName.ToString());
+        var eventInfo = _wrappedObject.GetType().GetEvent(eventName.ToString());
         if (eventInfo != null)
-            eventInfo.AddEventHandler(GetWrappedObject(),
+            eventInfo.AddEventHandler(_wrappedObject,
                 CreateDelegate(eventInfo.EventHandlerType,
                     (_, e) => { callback.call(null, PhpValue.FromClass(this), PhpValue.FromClass(e)); }));
         else
             throw new ArgumentException(
-                $"Event '{eventName}' not found on object of type '{GetWrappedObject().GetType().Name}'");
+                $"Event '{eventName}' not found on object of type '{_wrappedObject.GetType().Name}'");
     }
     
     private static Delegate CreateDelegate(Type type, EventHandler handler)
@@ -67,7 +74,7 @@ public class BaseWrapper<T> where T : new()
         return (Delegate) type.GetConstructor(new[] {typeof(object), typeof(IntPtr)})
             ?.Invoke(new[] {handler.Target, handler.Method.MethodHandle.GetFunctionPointer()});
     }
-
-    private readonly T _wrappedObject = new();
-}
     
+    private readonly T _wrappedObject;
+}
+

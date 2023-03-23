@@ -2,7 +2,7 @@
 
 namespace Peachpie\Avalonia\Controls;
 
-abstract class UxWindow
+class UxWindow extends UxWindowBase
 {
 
     /**

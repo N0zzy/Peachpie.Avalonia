@@ -12,7 +12,7 @@ namespace Peachpie.Avalonia;
 /// <see cref="IRenderer"/> to render the control. To traverse the visual tree, use the
 /// extension methods defined in <see cref="VisualExtensions"/>.
 /// </remarks>
-public class UxVisual<T> : UxStyledElement<T> where T : Visual, new()
+public class UxVisual<T> : UxStyledElement<T> where T : Visual
 {
  
 }

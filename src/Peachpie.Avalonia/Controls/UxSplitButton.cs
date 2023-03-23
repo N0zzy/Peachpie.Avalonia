@@ -2,7 +2,7 @@
 
 namespace Peachpie.Avalonia.Controls;
 
-public class UxSplitButton<T> : UxContentControl<T> where T : SplitButton, new()
+public class UxSplitButton<T> : UxContentControl<T> where T : SplitButton
 {
     
 }

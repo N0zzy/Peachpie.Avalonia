@@ -12,9 +12,8 @@ namespace Peachpie.Avalonia;
 /// <remarks>
 /// This class is analogous to DependencyObject in WPF.
 /// </remarks>
-public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new()
+public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject
 {
-    
     /*
     /// <summary>
     /// Binds a <see cref="AvaloniaProperty"/> to an observable.
@@ -37,7 +36,7 @@ public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new(
     /// </summary>
     public bool CheckAccess()
     {
-        return GetWrappedObject().CheckAccess();
+        return WrappedObject.CheckAccess();
     }
     
     /// <summary>
@@ -46,7 +45,7 @@ public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new(
     /// <param name="property">The property.</param>
     public void ClearValue(AvaloniaProperty property)
     {
-        GetWrappedObject().ClearValue(property);
+        WrappedObject.ClearValue(property);
     }
     
     /// <summary>
@@ -55,7 +54,7 @@ public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new(
     /// <param name="property">The property.</param>
     public void CoerceValue(AvaloniaProperty property)
     {
-        GetWrappedObject().CoerceValue(property);
+        WrappedObject.CoerceValue(property);
     }
     
     /// <summary>
@@ -74,7 +73,7 @@ public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new(
     /// </remarks>
     public sealed override bool Equals(object? obj)
     {
-        return GetWrappedObject().Equals(obj);
+        return WrappedObject.Equals(obj);
     }
     
     // public void GetBaseValue()
@@ -97,7 +96,7 @@ public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new(
     /// </remarks>
     public sealed override int GetHashCode()
     {
-        return GetWrappedObject().GetHashCode();
+        return WrappedObject.GetHashCode();
     }
     
     /// <summary>
@@ -107,7 +106,7 @@ public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new(
     /// <returns>The value.</returns>
     public PhpValue GetValue(AvaloniaProperty property)
     {
-        return PhpValue.FromClass(GetWrappedObject().GetValue(property));
+        return PhpValue.FromClass(WrappedObject.GetValue(property));
     }
     
     /// <summary>
@@ -117,7 +116,7 @@ public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new(
     /// <returns>True if the property is animating, otherwise false.</returns>
     public bool IsAnimating(AvaloniaProperty property)
     {
-        return GetWrappedObject().IsAnimating(property);
+        return WrappedObject.IsAnimating(property);
     }
     
     /// <summary>
@@ -131,7 +130,7 @@ public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new(
     /// </remarks>
     public bool IsSet(AvaloniaProperty property)
     {
-        return GetWrappedObject().IsSet(property);
+        return WrappedObject.IsSet(property);
     }
     
     /// <summary>
@@ -143,7 +142,7 @@ public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new(
     public IDisposable SetValue(AvaloniaProperty property, PhpValue value,
         BindingPriority priority = BindingPriority.LocalValue)
     {
-        return GetWrappedObject().SetValue(property, value, priority);
+        return WrappedObject.SetValue(property, value, priority);
     }
     
     /// <summary>
@@ -154,7 +153,7 @@ public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject, new(
     /// </exception>
     public void VerifyAccess()
     {
-        GetWrappedObject().VerifyAccess();
+        WrappedObject.VerifyAccess();
     }
     
 }

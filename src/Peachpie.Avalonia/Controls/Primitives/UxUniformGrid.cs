@@ -2,7 +2,7 @@
 
 namespace Peachpie.Avalonia.Controls.Primitives;
 
-public class UxUniformGrid<T> : UxPanel<T> where T : UniformGrid, new()
+public class UxUniformGrid<T> : UxPanel<T> where T : UniformGrid
 {
     
 }

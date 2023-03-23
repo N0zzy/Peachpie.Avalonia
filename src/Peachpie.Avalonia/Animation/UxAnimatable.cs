@@ -5,7 +5,7 @@ namespace Peachpie.Avalonia.Animation;
 /// <summary>
 /// Base class for all animatable objects.
 /// </summary>
-public class UxAnimatable<T> : UxAvaloniaObject<T> where T : Animatable, new()
+public class UxAnimatable<T> : UxAvaloniaObject<T> where T : Animatable
 {
     
 }

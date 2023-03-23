@@ -11,7 +11,7 @@ using Peachpie.Avalonia.Experimental;
 namespace Peachpie.Avalonia.Controls;
 
 [PhpType]
-public abstract class UxWindow<T> : BaseWrapper<T> where T : Window, new()
+public class UxWindow<T> : UxWindowBase<T> where T : Window
 {
     public UxWindow()
     {
@@ -20,7 +20,7 @@ public abstract class UxWindow<T> : BaseWrapper<T> where T : Window, new()
 
     public UxWindow<T> Form(string name)
     {
-        return UxWindowsList.FirstOrDefault(x => x.GetWrappedObject().Name == name);
+        return UxWindowsList.FirstOrDefault(x => x.WrappedObject.Name == name);
     } 
     
     /// <summary>
@@ -59,7 +59,7 @@ public abstract class UxWindow<T> : BaseWrapper<T> where T : Window, new()
     /// </exception>
     public void Show()
     {
-        GetWrappedObject().Show();
+        WrappedObject.Show();
     }
 
     /// <summary>
@@ -67,17 +67,18 @@ public abstract class UxWindow<T> : BaseWrapper<T> where T : Window, new()
     /// </summary>
     public void Hide()
     {
-        GetWrappedObject().Hide();
+        WrappedObject.Hide();
     }
 
     public void Close()
     {
-        GetWrappedObject().Close();
+        WrappedObject.Close();
     }
     
     [PhpHidden] private static readonly List<UxWindow<T>> UxWindowsList = new();
 }
 
-public abstract class UxWindow : UxWindow<Window>
+public class UxWindow : UxWindow<Window>
 {
+    
 }

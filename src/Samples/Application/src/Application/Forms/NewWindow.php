@@ -36,7 +36,7 @@ class NewWindow extends UxWindow
 
 
 
-        $UxStackPanel->Children->Add($button->GetWrappedObject());
-        $this->Content = $UxStackPanel->GetWrappedObject();
+        $UxStackPanel->Children->Add($button->WrappedObject);
+        $this->Content = $UxStackPanel->WrappedObject;
     }
 }

@@ -14,19 +14,15 @@ public enum ClickMode
 /// <summary>
 /// A standard button control.
 /// </summary>
-public class UxButton<T> : UxContentControl<T> where T : Button, new()
+public class UxButton<T> : UxContentControl<T> where T : Button
 {
-    public UxButton()
-    {
-        //GetWrappedObject().VerticalAlignment;
-    }
     /// <summary>
     /// Gets or sets a value indicating how the <see cref="Button"/> should react to clicks.
     /// </summary>
     public ClickMode ClickMode
     {
-        get => (ClickMode) GetWrappedObject().ClickMode;
-        set => GetWrappedObject().ClickMode = (global::Avalonia.Controls.ClickMode) value;
+        get => (ClickMode) WrappedObject.ClickMode;
+        set => WrappedObject.ClickMode = (global::Avalonia.Controls.ClickMode) value;
     }
 }
 

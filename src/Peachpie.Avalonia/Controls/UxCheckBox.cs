@@ -7,7 +7,7 @@ namespace Peachpie.Avalonia.Controls;
 /// <summary>
 /// A check box control.
 /// </summary>
-public class UxCheckBox<T> : UxToggleButton<T> where T : ToggleButton, new()
+public class UxCheckBox<T> : UxToggleButton<T> where T : CheckBox
 {
 
 }

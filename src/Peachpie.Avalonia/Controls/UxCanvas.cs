@@ -12,7 +12,7 @@ namespace Peachpie.Avalonia.Controls;
 /// defined by the <code>Canvas.Left</code>, <code>Canvas.Top</code>, <code>Canvas.Right</code>
 /// and <code>Canvas.Bottom</code> attached properties.
 /// </remarks>
-public class UxCanvas<T> : UxPanel<T> where T: Panel, new()
+public class UxCanvas<T> : UxPanel<T> where T: Panel
 {
 
 }

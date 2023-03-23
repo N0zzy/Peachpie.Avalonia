@@ -13,7 +13,7 @@ namespace Peachpie.Avalonia;
 /// - Implements <see cref="ILogical"/> to form part of a logical tree.
 /// - A collection of class strings for custom styling.
 /// </summary>
-public class UxStyledElement<T> : UxAnimatable<T> where T : StyledElement, new()
+public class UxStyledElement<T> : UxAnimatable<T> where T : StyledElement
 {
     
 }

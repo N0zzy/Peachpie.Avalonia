@@ -7,5 +7,5 @@ use Application\Forms\MainWindow;
 
 $UxApplication = new UxApplication(callback: function () {
     $MainWindow = new MainWindow();
-    return $MainWindow->GetWrappedObject();
+    return $MainWindow->WrappedObject;
 });

@@ -12,7 +12,7 @@ namespace Peachpie.Avalonia.Controls;
 /// <summary>
 /// An <see cref="UxItemsControl"/> in which individual items can be selected.
 /// </summary>
-public class UxListBox<T> : UxSelectingItemsControl<T> where T : ListBox, new()
+public class UxListBox<T> : UxSelectingItemsControl<T> where T : ListBox
 {
     public UxListBox()
     {
@@ -21,23 +21,23 @@ public class UxListBox<T> : UxSelectingItemsControl<T> where T : ListBox, new()
     
     public UxList Items
     {
-        set => GetWrappedObject().Items = value;
-        get => GetWrappedObject().Items as UxList;
+        set => WrappedObject.Items = value;
+        get => WrappedObject.Items as UxList;
     }
 
     public void SelectAll()
     {
-        GetWrappedObject().SelectAll();
+        WrappedObject.SelectAll();
     }
     
     public void UnSelectAll()
     {
-        GetWrappedObject().UnselectAll();
+        WrappedObject.UnselectAll();
     }
     
     public void Arrange(Rect rect)
     {
-        GetWrappedObject().Arrange(rect);
+        WrappedObject.Arrange(rect);
     }
     
     
