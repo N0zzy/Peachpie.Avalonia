@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Pchp.Core;
 using Peachpie.Avalonia.Controls.Primitives;
 
 namespace Peachpie.Avalonia.Controls;

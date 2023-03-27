@@ -11,6 +11,7 @@ namespace Peachpie.Avalonia.Controls;
 /// </remarks>
 public class UxPanel<T> : UxControl<T> where T : Panel
 {
+  
     
 }
 
