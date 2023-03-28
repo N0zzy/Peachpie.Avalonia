@@ -4,15 +4,26 @@ using Pchp.Core;
 
 namespace Peachpie.Avalonia.Experimental;
 
+/// <summary>
+/// Wraps a CLR object in a PHP object.
+/// </summary>
+/// <typeparam name="T">The type of the wrapped object.</typeparam>
 public class BaseWrapper<T>
 {
     internal PhpArray __peach__runtimeFields;
     
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BaseWrapper{T}"/> class.
+    /// </summary>
     public BaseWrapper()
     {
         _wrappedObject = Activator.CreateInstance<T>();
     }
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="BaseWrapper{T}"/> class with the specified wrapped object.
+    /// </summary>
+    /// <param name="wrappedObject">The object to wrap.</param>
     public BaseWrapper(T wrappedObject)
     {
         _wrappedObject = wrappedObject ?? throw new ArgumentNullException(nameof(wrappedObject));

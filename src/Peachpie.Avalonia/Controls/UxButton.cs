@@ -28,5 +28,5 @@ public class UxButton<T> : UxContentControl<T> where T : Button
 
 public class UxButton : UxButton<Button>
 {
-    
+ 
 }
