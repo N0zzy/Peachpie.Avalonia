@@ -195,7 +195,7 @@ public abstract class ViewBase : Decorator, IReloadable, IDeclarativeViewBase
     {
         base.OnAttachedToVisualTree(e);
 #if DEBUG
-        HotReloadManager.RegisterInstance(this);
+        //HotReloadManager.RegisterInstance(this);
 #endif
     }
 
@@ -203,7 +203,7 @@ public abstract class ViewBase : Decorator, IReloadable, IDeclarativeViewBase
     {
         base.OnDetachedFromVisualTree(e);
 #if DEBUG
-        HotReloadManager.UnregisterInstance(this);
+        //HotReloadManager.UnregisterInstance(this);
 #endif
     }
 
