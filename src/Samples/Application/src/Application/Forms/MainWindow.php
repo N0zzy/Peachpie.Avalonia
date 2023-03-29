@@ -20,9 +20,6 @@ class MainWindow extends UxWindow
 
         $ListBox = new UxListBox();
         $ListBox->Items->add('Hello World');
-        $bb = new UxButton();
-
-        $ListBox->Items->add($bb->WrappedObject);
         $UxButton = new UxButton();
         $UxButton->Name = "button1";
         $UxButton->Content = "Open NewWindow";
@@ -47,7 +44,7 @@ class MainWindow extends UxWindow
         $UxStackPanel->Children->Add($ListBox->WrappedObject);
         $UxStackPanel->Children->Add($UxButton->WrappedObject);
         $UxStackPanel->Children->Add($UxCheckBox->WrappedObject);
-
+        
 
         $this->Content = $UxStackPanel;
     }
