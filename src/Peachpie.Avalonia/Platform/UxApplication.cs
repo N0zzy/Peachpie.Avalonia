@@ -6,6 +6,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Material.Colors;
 using Material.Styles.Themes;
 using Material.Styles.Themes.Base;
+using Peachpie.Avalonia.Controls;
 
 
 namespace Peachpie.Avalonia.Platform;
@@ -27,8 +28,8 @@ public class UxApplication
                     SecondaryColor = SecondaryColor.Blue
                 }))
             .SetupWithLifetime(lifetime);
-
-        lifetime.MainWindow = (Window)closure.__invoke().ToClass();
+        var w = (UxWindow) closure.__invoke().ToClass();
+        lifetime.MainWindow = w.WrappedObject;
 
         lifetime.Start(args);
     }

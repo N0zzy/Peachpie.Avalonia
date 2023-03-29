@@ -8,7 +8,7 @@ namespace Peachpie.Avalonia.Experimental;
 /// Wraps a CLR object in a PHP object.
 /// </summary>
 /// <typeparam name="T">The type of the wrapped object.</typeparam>
-public class BaseWrapper<T>
+public class BaseWrapper<T> : IBaseWrapper
 {
     internal PhpArray __peach__runtimeFields;
     
@@ -30,6 +30,12 @@ public class BaseWrapper<T>
     }
 
     public T WrappedObject => _wrappedObject;
+
+    [PhpHidden]
+    public object GetWrappedObject()
+    {
+        return WrappedObject;
+    }
     
     public PhpValue __get(string propertyName)
     {

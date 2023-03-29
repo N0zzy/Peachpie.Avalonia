@@ -20,10 +20,14 @@ class MainWindow extends UxWindow
 
         $ListBox = new UxListBox();
         $ListBox->Items->add('Hello World');
+        $bb = new UxButton();
 
+        $ListBox->Items->add($bb->WrappedObject);
         $UxButton = new UxButton();
         $UxButton->Name = "button1";
-        $UxButton->Content = "Button1";
+        $UxButton->Content = "Open NewWindow";
+
+
         $UxButton->Width = $this->Width / 2;
         $UxButton->HorizontalAlignment = HorizontalAlignment::Left;
 
@@ -32,7 +36,8 @@ class MainWindow extends UxWindow
 
         $data = $this;
         $newWindow = new NewWindow();
-        $UxButton->on('Click', function (UxButton $sender, $e) use ($UxCheckBox, $ListBox, $newWindow) {
+        $UxButton->on('Click', function (UxButton $sender, $e) use ($newWindow, $UxCheckBox, $ListBox) {
+
             $IsChecked = $UxCheckBox->IsChecked ? 'AddToList - true' : 'AddToList - false';
             $ListBox->Items->Add($IsChecked);
 
@@ -44,7 +49,7 @@ class MainWindow extends UxWindow
         $UxStackPanel->Children->Add($UxCheckBox->WrappedObject);
 
 
-        $this->Content = $UxStackPanel->WrappedObject;
+        $this->Content = $UxStackPanel;
     }
 
 }

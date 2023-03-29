@@ -139,7 +139,7 @@ public class UxAvaloniaObject<T> : BaseWrapper<T> where T : AvaloniaObject
     /// <param name="property">The property.</param>
     /// <param name="value">The value.</param>
     /// <param name="priority">The priority of the value.</param>
-    public IDisposable SetValue(AvaloniaProperty property, PhpValue value,
+    public IDisposable SetValue(AvaloniaProperty property, object value,
         BindingPriority priority = BindingPriority.LocalValue)
     {
         return WrappedObject.SetValue(property, value, priority);
