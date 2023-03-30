@@ -1,8 +1,8 @@
 using System;
 using Avalonia.Controls;
 using Pchp.Core;
+using Peachpie.Avalonia.Controls.Interfaces;
 using Peachpie.Avalonia.Controls.Primitives;
-using Peachpie.Avalonia.Experimental;
 
 namespace Peachpie.Avalonia.Controls;
 
@@ -16,9 +16,9 @@ public class UxContentControl<T> : UxTemplatedControl<T> where T : ContentContro
             switch (Type.GetTypeCode(value.ToClr().GetType()))
             {
                 case TypeCode.Object:
-                    var control = (IBaseWrapper)value.ToClr();
+                    var control = (IUxControl) value.ToClr();
                     _content = control;
-                    SetValue(ContentControl.ContentProperty, control.GetWrappedObject());
+                    SetValue(ContentControl.ContentProperty, control.WrappedControl);
                     break;
                 default:
                     _content = value.ToClr();
