@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Specialized;
 using Avalonia.Controls;
+using Pchp.Core;
 using Peachpie.Avalonia.Controls.Interfaces;
 
 namespace Peachpie.Avalonia.Controls;
@@ -18,11 +19,7 @@ public class UxPanel<T> : UxControl<T> where T : Panel
     {
         Children.CollectionChanged += UxControl_CollectionChanged;
     }
-
-    public void Remove(IUxControl uxControl)
-    {
-        Children.Remove(uxControl);
-    }
+    
 
     /// <summary>
     /// Gets the children of the <see cref="T:UxPanel" />.
@@ -36,14 +33,22 @@ public class UxPanel<T> : UxControl<T> where T : Panel
         {
             
             case NotifyCollectionChangedAction.Add: 
-                if (e.NewItems?[0] is IUxControl newUxControl)
+                if (e.NewItems?[0] is PhpValue newUxControl)
                 {
-                    Console.WriteLine($"Добавлен новый объект: {newUxControl}");
-                    WrappedObject.Children.Add((Control) newUxControl.WrappedControl);
+                    var control = (IUxControl) newUxControl.ToClass();
+                    WrappedObject.Children.Add((Control) control.WrappedControl);
                 }
+                else
+                    throw new ArgumentException("-------");
+                
                 break;
             case NotifyCollectionChangedAction.Remove: // если удаление
-                Console.WriteLine($"Удален объект: {e.OldItems?[0]}");
+                if (e.OldItems?[0] is PhpValue oldUxControl)
+                {
+                    var control = (IUxControl) oldUxControl.ToClass();
+                    WrappedObject.Children.Remove((Control) control.WrappedControl);
+                }
+
                 break;
         }
     }
