@@ -2,9 +2,10 @@
 
 namespace Application\Forms;
 
-use Peachpie\Avalonia\Controls\{UxWindow, UxStackPanel, UxListBox, UxButton, UxCheckBox};
+use Peachpie\Avalonia\Controls\{UxProgressBar, UxWindow, UxStackPanel, UxListBox, UxButton, UxCheckBox};
 use Peachpie\Avalonia\Layout\HorizontalAlignment;
 
+use Peachpie\Avalonia\Controls\UxControls;
 class MainWindow extends UxWindow
 {
 
@@ -46,14 +47,8 @@ class MainWindow extends UxWindow
         $UxStackPanel->Children->Add($ListBox);
         $UxStackPanel->Children->Add($UxButton);
         $UxStackPanel->Children->Add($UxCheckBox);
+        
 
-        /*
-        $collection  = $UxStackPanel->Children;
-
-        foreach ($collection as $value) {
-            echo'object: '.$value."\r\n";
-        }
-        */
         $this->Content = $UxStackPanel;
     }
 

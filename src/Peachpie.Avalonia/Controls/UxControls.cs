@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using Avalonia.Collections;
 using Pchp.Core;
+using Peachpie.Avalonia.Experimental;
 
 namespace Peachpie.Avalonia.Controls;
 
@@ -25,5 +26,5 @@ public class UxControls: AvaloniaList<PhpValue>
     {
         ResetBehavior = ResetBehavior.Remove;
     }
-    
+
 }
