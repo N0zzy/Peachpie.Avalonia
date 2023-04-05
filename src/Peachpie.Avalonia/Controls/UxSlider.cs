@@ -7,3 +7,8 @@ public class UxSlider<T> : UxRangeBase<T> where T : Slider
 {
     
 }
+
+public class UxSlider : UxSlider<Slider>
+{
+    
+}
