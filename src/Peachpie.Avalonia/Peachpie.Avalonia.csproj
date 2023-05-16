@@ -8,6 +8,8 @@
         <LangVersion>latest</LangVersion>
         <Title>AvaloniaUI for PeachPie</Title>
         <Authors>FibonacciFox</Authors>
+        <Configurations>Debug;Release;SDK</Configurations>
+        <Platforms>AnyCPU</Platforms>
     </PropertyGroup>
 
     <ItemGroup>

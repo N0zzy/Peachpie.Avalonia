@@ -4,13 +4,18 @@
     <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>SharpPie</RootNamespace>
     <RuntimeVersion>8.1</RuntimeVersion>
+    <Configurations>Debug;Release;SDK</Configurations>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
+  
   <ItemGroup>
     <Compile Include="**/*.php" />
   </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\..\Peachpie.Avalonia\Peachpie.Avalonia.csproj" />
   </ItemGroup>
+  
   <ItemGroup>
     <Folder Include="src\" />
     <Folder Include="src\SharPie" />

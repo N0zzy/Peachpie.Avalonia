@@ -2,6 +2,8 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <TargetFramework>net7.0</TargetFramework>
+    <Configurations>Debug;Release;SDK</Configurations>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="**/*.php" />
@@ -12,7 +14,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Peachpie.Avalonia\Peachpie.Avalonia.csproj" />
   </ItemGroup>
-
  <!-- 
  <Target Name="CopyLibrary" BeforeTargets="BeforeBuild">
     <Message Text="###BeforeBuild###" Importance="High" />

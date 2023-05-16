@@ -1,12 +1,25 @@
 ﻿<Project Sdk="Peachpie.NET.Sdk/1.1.7">
-  <PropertyGroup>
+  
+  <PropertyGroup  Condition="'$(Configuration)' != 'SDK'">
     <OutputType>exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
     <StartupObject>ApplicationDesktop.php</StartupObject>
+    <Configurations>Debug;Release;SDK</Configurations>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
+  
+  <PropertyGroup  Condition="'$(Configuration)' == 'SDK'">
+    <OutputType>exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <StartupObject>Autoload.php</StartupObject>
+    <Configurations>Debug;Release;SDK</Configurations>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="**/*.php" />
   </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.msbuildproj" />
   </ItemGroup>
