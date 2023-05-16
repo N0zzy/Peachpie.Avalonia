@@ -1,0 +1,15 @@
+﻿{
+  "name": "fibonaccifox/sharpey",
+  "description": "sharpey sdk for ui framework",
+  "type": "library",
+  "require": {
+    "php": ">=8.1"
+  },
+  "license": "MIT",
+  "authors": [ { "name": "N0zzy" } ],
+  "autoload": {
+    "psr-4": {
+      "": ""
+    }
+  }
+}
